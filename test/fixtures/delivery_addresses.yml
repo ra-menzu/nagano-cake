@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guest_id: 1
+  postal_code: MyString
+  postal_adress: MyString
+  destination: MyString
+  created_at: 2020-02-08 06:50:14
+  updated_at: 2020-02-08 06:50:14
+
+two:
+  guest_id: 1
+  postal_code: MyString
+  postal_adress: MyString
+  destination: MyString
+  created_at: 2020-02-08 06:50:14
+  updated_at: 2020-02-08 06:50:14
