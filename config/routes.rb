@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   	resources :products
   	resources :orders
   	resources :order_histories
-  	resources :guests
   	resources :delivary_adresses
   	resources :cart_item
   end
