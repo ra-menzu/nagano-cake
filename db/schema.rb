@@ -10,6 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2020_02_08_063552) do
+
+  create_table "guests", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "family_name"
+    t.string "last_name"
+    t.string "family_name_kana"
+    t.string "last_name_kana"
+    t.string "postcode"
+    t.string "street_adress"
+    t.string "phone_nember"
+    t.boolean "deleted_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_guests_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
+=======
 ActiveRecord::Schema.define(version: 2020_02_08_071108) do
 
   create_table "cart_items", force: :cascade do |t|
@@ -68,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_071108) do
     t.integer "sales_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+>>>>>>> e95ab676e489ed519ba9b48b8e081d04418243bf
   end
 
 end
