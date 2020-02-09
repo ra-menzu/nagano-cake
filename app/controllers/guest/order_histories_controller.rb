@@ -1,4 +1,4 @@
-class Guest::OrderHistoriesController < guest::Base
+class Guest::OrderHistoriesController < ApplicationController
 	def new
 	end
 end
