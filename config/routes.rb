@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :admin do
 
     get 'genres/new'
+    post 'genres/new' => "genres#create"
+    get 'genres/edit'
     get 'orders/new'
     get 'guests/new'
     get 'products' => 'products#index'
