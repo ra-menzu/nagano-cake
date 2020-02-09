@@ -1,4 +1,4 @@
-class Guest::CartItemsController < guest::Base
+class Guest::CartItemsController < ApplicationController
 	def new
 	end
 end

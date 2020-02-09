@@ -1,4 +1,4 @@
-class Guest::OrdersController < guest::Base
+class Guest::OrdersController < ApplicationController
 	def new
 	end
 end

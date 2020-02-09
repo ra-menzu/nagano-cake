@@ -1,4 +1,4 @@
-class Guest::DelivaryAdressesController < guest::Base
+class Guest::DelivaryAdressesController < ApplicationController
 	def new
 	end
 end

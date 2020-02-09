@@ -1,4 +1,5 @@
-class Guest::GuestsController < guest::Base
-	def new
+class Guest::GuestsController < ApplicationController
+	def top
+		@guests = Guest.all
 	end
 end

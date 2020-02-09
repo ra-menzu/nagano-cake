@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+	@import "bootstrap-sprockets";
+  	@import "bootstrap";
+
+
+.nav navbar-nav navar-center{
+	text-align: center;
+}
+
+
+
