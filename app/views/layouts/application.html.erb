@@ -8,9 +8,50 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+      <div id="container">
+            <header class="navbar navar-fixed-top">
+                <nav class="nav navbar-nav navbar-left">
+                    <h1>ながのcake</h1>
+                </nav>
+                <nav class="nav navbar-nav navar-center">
+                  <li class="center">
+                      <%= link_to "検索画面"%>
+                      <%= link_to "商品一覧", admin_products_path %>
+                  </li>
+                </nav>
+                <nav>
+                  <ul class="nav navbar-nav navbar-right">
+                    <% if guest_signed_in? %>
+                      <li class="">
+                        <%= link_to "マイページ" %>
+                      </li>
+                      <li class="" >
+                        <%= link_to "ログアウト",destroy_guest_session_path, method: :delete %>
+                      </li>
+                      <li class="">
+                        <%= link_to "アバウト" %>
+                      </li>
+                      <li class="">
+                        <%= link_to "カート", guest_cart_item_index_path %>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to "ログイン", new_guest_session_path %>
+                      </li>
+                      <li>
+                        <%= link_to "アバウト" %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </nav>
+            </div>
+          </header>
+      </div>
+    <main>
 
-    <%= content_for?(:content) ? yield(:content) : yield %>
-  </body>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
+    <footer></footer>
+
 </html>

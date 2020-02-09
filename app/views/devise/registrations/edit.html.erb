@@ -2,6 +2,26 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :氏名漢字 %>
+    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name"%>
+
+  <div class="field">
+    <%= f.label :フリガナ %>
+    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"%>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%>
+
+  <div class="field">
+    <%= f.label :郵便番号 %>
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode"%>
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_field :street_adress, autofocus: true, autocomplete: "street_adress"%>
+  <div class="field">
+    <%= f.label :電話番号 %>
+    <%= f.text_field :phone_nember, autofocus: true, autocomplete: "phone_number"%>
+
 
   <div class="field">
     <%= f.label :email %><br />
