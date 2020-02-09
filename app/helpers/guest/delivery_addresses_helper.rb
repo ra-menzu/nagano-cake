@@ -1,0 +1,2 @@
+module Guest::DeliveryAddressesHelper
+end
