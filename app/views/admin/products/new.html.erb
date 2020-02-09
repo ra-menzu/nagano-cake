@@ -1,2 +1,36 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+
+<h3>商品 新規登録画面</h3>
+
+
+  <div class="input_form">
+  <%= form_for(@product, url:admin_products_new_path) do |f| %>
+
+  	<div class="form_group">
+     <p>商品名</p>
+     <%= f.text_field :name %>
+    </div>
+
+    <div class="form_group">
+     <p>商品説明</p>
+     <%= f.text_area :comment %>
+    </div>
+
+    <div class="form_group">
+     <p>ジャンル</p>
+    </div>
+
+    <div class="form_group">
+     <p>税抜価格</p>
+     <%= f.text_field :non_tax_price %>円
+    </div>
+
+    <div class="form_group">
+     <p>販売ステータス</p>
+
+    </div>
+
+    <div class="form_group">
+     <input type="submit" value="新規登録">
+    </div>
+  <% end %>
+  </div>
