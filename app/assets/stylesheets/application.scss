@@ -13,13 +13,69 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
 	@import "bootstrap-sprockets";
   	@import "bootstrap";
 
 
 .nav navbar-nav navar-center{
 	text-align: center;
+=======
+
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main{
+	width:100%;
+	height:600px;
+	background-image:url(top-image.jpg);
+	background-size:cover;
+	background-position:center;
+}
+
+.main-title{
+	color:#fff;
+	font-size:50px;
+	padding-top:100px;
+	padding-left:30px;
+>>>>>>> 5b3c74478187a316e853df70e2cd82be4148f072:app/assets/stylesheets/application.css
 }
 
 
 
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
+=======
+.favorite-title{
+	font-size:40px;
+	padding-top:150px;
+	text-align:center;
+}
+
+.favorite-title::after{
+	content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    margin: 8px auto 0 auto;
+    background-color: #EC715F;
+}
+
+.sample_cake{
+	width:300px;
+	height:200px;
+}
+
+.top-product-cake{
+	margin-top:100px;
+	float:left;
+	margin-left:40px;
+}
+
+.top-product-name{
+	padding-top:30px;
+	padding-bottom:200px;
+}
+>>>>>>> 5b3c74478187a316e853df70e2cd82be4148f072:app/assets/stylesheets/application.css

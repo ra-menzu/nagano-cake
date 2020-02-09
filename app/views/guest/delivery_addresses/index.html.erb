@@ -1,0 +1,33 @@
+<h1>配送先登録一覧</h1>
+<%= form_for @delivery_address,url:guest_delivery_addresses_path  do |f| %>
+
+<table class="delivery-new">
+
+    <%= f.text_area :postal_code %>
+ 
+    <h4>住所</h4>
+    <%= f.text_area :postal_adress %>
+
+    <h4>宛名</h4>
+    <%= f.text_area :destination %>
+ 
+   <p><%= f.submit '登録する' %></p>
+</table>
+ 
+<% end %>
+
+	<table class="delivery-index">
+		<tr>
+			<th>郵便番号</th>
+			<th>住所</th>
+	        <th>宛名</th>
+		</tr>
+		<% @delivery_addresses.each do |delivery| %>
+		<tr>
+			<td><%= delivery.postal_code %></td>
+			<td><%= delivery.postal_adress %></td>
+			<td><%= delivery.destination %></td>
+			<td><%= link_to "編集する" %></td>
+			<td><%= link_to "削除する",guest_delivery_address_path(delivery.id),method: :delete,"data-confirm"=>"are you sure?"%></td>
+		</tr>
+<% end %>

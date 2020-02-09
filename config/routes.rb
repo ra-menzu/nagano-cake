@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  root "homes#top"
+  get "home/about" => "homes#about"
+
   namespace :admin do
+
     get 'genres/new'
     post 'genres/new' => "genres#create"
     get 'genres/edit'
@@ -21,8 +25,8 @@ Rails.application.routes.draw do
   namespace :guest do
   	resources :products
   	resources :orders
+    resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
-  	resources :delivary_adresses
   	resources :cart_item
   end
 end
