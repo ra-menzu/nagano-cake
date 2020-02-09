@@ -13,15 +13,13 @@
  *= require_tree .
  *= require_self
  */
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
 	@import "bootstrap-sprockets";
   	@import "bootstrap";
 
 
 .nav navbar-nav navar-center{
 	text-align: center;
-=======
-
+}
 *{
 	margin: 0;
     padding: 0;
@@ -41,13 +39,9 @@
 	font-size:50px;
 	padding-top:100px;
 	padding-left:30px;
->>>>>>> 5b3c74478187a316e853df70e2cd82be4148f072:app/assets/stylesheets/application.css
 }
 
 
-
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
-=======
 .favorite-title{
 	font-size:40px;
 	padding-top:150px;
@@ -78,4 +72,4 @@
 	padding-top:30px;
 	padding-bottom:200px;
 }
->>>>>>> 5b3c74478187a316e853df70e2cd82be4148f072:app/assets/stylesheets/application.css
+
