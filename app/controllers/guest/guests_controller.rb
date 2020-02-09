@@ -1,5 +1,3 @@
 class Guest::GuestsController < ApplicationController
-	def top
-		@guests = Guest.all
+	def new
 	end
-end
