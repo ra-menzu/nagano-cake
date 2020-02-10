@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     get 'genres/edit'
     get 'orders/new'
     get 'guests/new'
+
+    resources :guests,only:[:index,:show,:edit,:update]
+
     resources :products
     devise_for :guests
   end

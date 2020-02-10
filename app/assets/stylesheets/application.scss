@@ -14,12 +14,13 @@
  *= require_self
  */
 	@import "bootstrap-sprockets";
-  	@import "bootstrap";
+	@import "bootstrap";
 
 
 .nav navbar-nav navar-center{
 	text-align: center;
 }
+
 *{
 	margin: 0;
     padding: 0;
@@ -40,7 +41,6 @@
 	padding-top:100px;
 	padding-left:30px;
 }
-
 
 .favorite-title{
 	font-size:40px;
@@ -73,3 +73,24 @@
 	padding-bottom:200px;
 }
 
+.delivery th,.delivery td{
+	border:solid 1px #000;
+	padding:10px;
+}
+
+.delivery th{
+	background-color:#c0c0c0;
+}
+
+.admin_guest th{
+	background-color:#c0c0c0;
+}
+
+.admin_guest th,.admin_guest td{
+	border:solid 1px #000;
+	padding:10px;
+}
+
+.admin_guest_show th,.admin_guest_show td{
+    padding:20px;
+}
