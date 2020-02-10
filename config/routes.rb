@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'products/:id' => 'products#show'
     patch 'products/id' => 'products#update'
     post 'products/id' => 'products#update'
+    resources :guests,only:[:index,:show,:edit,:update]
     devise_for :guests
   end
 

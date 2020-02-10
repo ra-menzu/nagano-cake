@@ -1,0 +1,18 @@
+<h1>会員一覧画面</h1>
+
+<table class="admin_guest index">
+	<tr>
+		<th>会員ID</th>
+		<th>氏名</th>
+		<th>メールアドレス</th>
+		<th>ステータス</th>
+	</tr>
+    <% @guests.each do |guest| %>
+	<tr>
+		<td><%= guest.id %></td>
+		<td><%= link_to guest.family_name,admin_guest_path(guest.id) %><%= link_to guest.last_name,admin_guest_path(guest.id) %></td>
+		<td><%= guest.email %></td>
+		<td></td>
+	</tr>
+	<% end %>
+</table>

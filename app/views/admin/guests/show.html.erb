@@ -1,0 +1,34 @@
+<h1>会員詳細画面</h1>
+
+<table class="admin_guest_show">
+	<tr>
+		<th>顧客ID</th>
+		<td><%= @guest.id %></td>
+	</tr>
+	<tr>
+		<th>氏名</th>
+		<td><%= @guest.family_name %><%= @guest.last_name %></td>
+	</tr>
+	<tr>
+		<th>フリガナ</th>
+		<td><%= @guest.family_name_kana %><%= @guest.last_name_kana %></td>
+	</tr>
+	<tr>
+		<th>郵便番号</th>
+		<td><%= @guest.postcode %></td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td><%= @guest.street_adress %></td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td><%= @guest.phone_nember %></td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td><%= @guest.email %></td>
+	</tr>
+</table>
+
+<%= link_to "編集する",edit_admin_guest_path(@guest.id) %>
