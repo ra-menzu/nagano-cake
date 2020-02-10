@@ -3,19 +3,12 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
 
   namespace :admin do
-
     get 'genres/new'
     post 'genres/new' => "genres#create"
     get 'genres/edit'
     get 'orders/new'
     get 'guests/new'
-    get 'products' => 'products#index'
-    get 'products/new' => 'products#new'
-    post 'products/new' => 'products#create'
-    get 'products/:id/edit' => 'products#edit'
-    get 'products/:id' => 'products#show'
-    patch 'products/id' => 'products#update'
-    post 'products/id' => 'products#update'
+    resources :products
     devise_for :guests
   end
 
