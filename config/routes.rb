@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
 
   namespace :admin do
-    get 'genres/new'
-    post 'genres/new' => "genres#create"
-    get 'genres/edit'
+    resources :genres, only: [:index, :edit, :update, :create]
     get 'orders/new'
     get 'guests/new'
 
