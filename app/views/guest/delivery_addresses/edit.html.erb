@@ -1,0 +1,24 @@
+<h1>配送先編集</h1>
+<%= form_for @delivery_address,url:guest_delivery_address_path(@delivery_address.id) do |f| %>
+
+<table class="delivery edit">
+
+    <tr>
+	    <th>郵便番号</th>
+	    <td><%= f.text_area :postal_code %></td>
+	</tr>
+
+	<tr>
+	    <th>住所</th>
+	    <td><%= f.text_area :postal_adress %></td>
+	</tr>
+
+    <tr>
+	    <th>宛名</th>
+	    <td><%= f.text_area :destination %></td>
+	</tr>
+  </table>
+
+   <span><%= f.submit '編集する' %></span>
+<% end %>
+</table>
