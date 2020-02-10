@@ -24,5 +24,7 @@ Rails.application.routes.draw do
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
   	resources :cart_item
+    
   end
+   resources :guests
 end
