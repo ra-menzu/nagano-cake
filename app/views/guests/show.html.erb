@@ -1,0 +1,33 @@
+<h2>マイページ</h2>
+<p>登録情報</p>
+<%= link_to "編集する", edit_guest_path %>
+<%= link_to "パスワードを変更する", edit_guest_password_path %>
+
+
+
+<table>
+		<tr>
+			<th>氏名</th>
+			<td><%= @guest.family_name %><%= @guest.last_name %></td>
+		</tr>
+		<tr>
+			<th>カナ</th><td><%= @guest.family_name_kana %><%= @guest.last_name_kana %></td>
+		</tr>
+		<tr>
+			<th>郵便番号</th><td><%= @guest.postcode %></td>
+		</tr>
+		<tr>
+			<th>住所</th><td><%= @guest.street_adress %></td>
+		</tr>
+		<tr>
+			<th>電話番号</th><td><%= @guest.phone_nember %></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th><td><%= @guest.email %></td>
+		</tr>
+
+</table>
+
+<P>配送先</P><span><%=link_to "一覧を見る" ,guest_delivery_addresses_path %></span>
+<p>商品</p><span><%= link_to "一覧を見る" , guest_products_path %></span>
+

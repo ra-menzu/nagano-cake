@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     post 'products/new' => 'products#create'
     get 'products/:id/edit' => 'products#edit'
     get 'products/:id' => 'products#show'
-    patch 'products/id' => 'products#update'
-    post 'products/id' => 'products#update'
+    patch 'products/:id' => 'products#update'
+    post 'products/:id' => 'products#update'
     devise_for :guests
   end
 
@@ -28,5 +28,7 @@ Rails.application.routes.draw do
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
   	resources :cart_item
+    
   end
+   resources :guests
 end
