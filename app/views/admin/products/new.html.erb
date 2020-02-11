@@ -1,10 +1,12 @@
 
 <h3>商品 新規登録画面</h3>
 
-     <input name="image" type="file">
+    <%= form_for @product, url:admin_products_path do |f| %>
 
+    <div class="image_form">
+      <%= f.file_field :image_id %>
+    </div>
   <div class="input_form">
-  <%= form_for @product, url: new_admin_product_path do |f| %>
 
   	<div class="form_group">
      <p>商品名</p>
@@ -28,7 +30,7 @@
 
     <div class="form_group">
      <p>販売ステータス</p>
-     <%= f.select :sales_status, ["販売中", "売切れ"], :prompt => "選択してください" %>
+     <%= f.select :sales_status, Product.sales_statuses.keys, {prompt: '選択してください'} %>
     </div>
 
     <div class="form_group">
