@@ -29,6 +29,12 @@
 		<th>メールアドレス</th>
 		<td><%= @guest.email %></td>
 	</tr>
+	<tr>
+		<th>会員ステータス</th>
+		<td><%= @guest.delete_user_status %></td>
+	</tr>
+
+
 </table>
 
 <%= link_to "編集する",edit_admin_guest_path(@guest.id) %>

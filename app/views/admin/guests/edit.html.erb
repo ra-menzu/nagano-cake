@@ -32,9 +32,8 @@
 	</tr>
 	<tr>
 		<th>ステータス</th>
-		<td><label><%= f.radio_button :deleted_user, "1" %>有効</label>
-		 <label><%= f.radio_button :deleted_user, "2" %>退会済み</label>
-			
+		<td><label><%= f.radio_button(:delete_user_status, true) %>有効</label>
+		 <label><%= f.radio_button(:delete_user_status,false)  %>退会済み</label>
 		</td>
 	</tr>
 	<td><%= f.submit '変更を保存する' %></td>
