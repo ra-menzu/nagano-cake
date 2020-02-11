@@ -1,6 +1,10 @@
 class Guest::ProductsController < ApplicationController
 	def index
 		@products = Product.all
+        @genre =Genre.all
+        @products.each do |a|
+        puts a.genre.genre_name
+    end
 	end
 
 	def show
