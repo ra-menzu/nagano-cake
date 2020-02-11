@@ -1,10 +1,6 @@
 class Guest::ProductsController < ApplicationController
 	def index
 		@products = Product.all
-        @genre =Genre.all
-        @products.each do |a|
-        puts a.genre.genre_name
-    end
 	end
 
 	def show
@@ -15,4 +11,8 @@ class Guest::ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name,:comment,:genre_id,:non_tax_price,:sales_status,:image_id )
     end
+  private
+  def genre_params
+      params.require(:genre).permit(:id, :class_status, :name)
+  end
 end
