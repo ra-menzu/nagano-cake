@@ -3,7 +3,7 @@
 		<% @products.each do |product| %>
 			<div class="top-product-cake">
 				<img class="sample_cake" src="top-image.jpg">
-				<h4 class="top-product-name"><%= @product.name %></h4>
-				<%= products.non_tax_price %>
+				<h4 class="top-product-name">商品名<%= link_to product.name,guest_product_path(product.id) %></h4>
+				<p>¥<%= product.non_tax_price %></p>
 			</div>
 		<% end %>
