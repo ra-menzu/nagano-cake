@@ -9,6 +9,6 @@ class Guest::ProductsController < ApplicationController
 
 	private
     def product_params
-      params.require(:product).permit(:name, :comment,:image_id,:non_tax_price)
+      params.require(:product).permit(:name,:comment,:genre_id,:non_tax_proce,:sales_status)
     end
 end
