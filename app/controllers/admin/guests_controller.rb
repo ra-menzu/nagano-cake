@@ -19,6 +19,6 @@ class Admin::GuestsController < ApplicationController
 
 private
   def guest_params
-  	params.require(:guest).permit(:email,:family_name,:last_name,:family_name_kana,:last_name_kana,:postcode,:street_adress,:phone_nember,:delete_user_status)
+  	params.require(:guest).permit(:email,:family_name,:last_name,:family_name_kana,:last_name_kana,:postcode,:street_adress,:phone_nember,:delete_user_status,:deleted_at)
   end
 end
