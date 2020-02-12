@@ -6,4 +6,6 @@ class Guest < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :guests, through: :cart_items
   accepts_nested_attributes_for :cart_items
+  acts_as_paranoid
+
 end
