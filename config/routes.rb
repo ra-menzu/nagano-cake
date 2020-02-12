@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :update, :create]
     get 'orders/new'
     get 'guests/new'
-
     resources :guests,only:[:index,:show,:edit,:update]
-
     resources :products
     devise_for :guests
   end
@@ -22,7 +20,6 @@ Rails.application.routes.draw do
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
   	resources :cart_item
-    
   end
    resources :guests
 end

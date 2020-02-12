@@ -1,6 +1,9 @@
 <h1>ケーキ(全X件)</h1>
 
-		<div class="top-product-cake">
-			<img class="sample_cake" src="top-image.jpg">
-			<h4 class="top-product-name">商品名</h4>
-		</div>
+		<% @products.each do |product| %>
+			<div class="top-product-cake">
+				<img class="sample_cake" src="top-image.jpg">
+				<h4 class="top-product-name"><%= @product.name %></h4>
+				<%= products.non_tax_price %>
+			</div>
+		<% end %>
