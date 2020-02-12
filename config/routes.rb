@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   	resources :order_histories
   	resources :cart_item
   end
-   resources :guests
+   resources :guests,only:[:edit,:update,:show,:index,:destroy]
 end

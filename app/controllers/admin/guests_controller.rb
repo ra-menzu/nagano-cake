@@ -1,6 +1,6 @@
 class Admin::GuestsController < ApplicationController
   def index
-  	@guests = Guest.all
+  	@guests = Guest.with_deleted
   end
 
   def show
