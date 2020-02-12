@@ -1,2 +1,28 @@
 <h1>ショッピングカート</h1>
 
+<br>
+<%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
+<br>
+
+<table>
+	<thead>
+	  <tr>
+	    <th>商品名</th>
+	    <th>単価(税込)</th>
+	    <th>数量</th>
+	    <th>小計</th>
+	    <th>   </th>
+	  </tr>
+	</thead>
+	<tbody>
+		<% @cart_items.each do |item| %>
+	  <tr>
+	  	<td><%= item.product.name %></td>
+	  	<td><%= item.product.non_tax_price%></td>
+	  	<td><%= item.quantity %></td>
+	  	<td><%= %></td>
+	  	<td></td>
+	  </tr>
+	</tbody>
+	<% end %>
+</table>
