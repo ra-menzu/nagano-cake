@@ -1,10 +1,6 @@
 <div class="product-details">
 	<img class="show-sample_cake" src="top-image.jpg">
-	<h4 class="show-product-name">商品名</h4>
-	<p class="show-product-comment">うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。うまい。</p>
-	<div class="show-product-price">¥550円(税込)</div>
-	<%= form_for (@product) do |f| %>
-	    <%= f.label :quantity, "個数選択" %>
-	    <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
-    <% end %>
+	<h4 class="show-product-name"><%= @product.name %></h4>
+	<p class="show-product-comment"></p>
+	<div class="show-product-price">¥<%= @product.non_tax_price %>(税込)</div>
 </div>
