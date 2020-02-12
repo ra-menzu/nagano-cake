@@ -4,7 +4,7 @@
     <%= form_for @product, url:admin_products_path do |f| %>
 
     <div class="image_form">
-      <%= f.file_field :image_id %>
+      <%= f.attachment_field :image %>
     </div>
   <div class="input_form">
 

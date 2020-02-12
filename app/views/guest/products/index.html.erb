@@ -1,9 +1,19 @@
-<h1>ケーキ(全X件)</h1>
+<h3>ジャンル検索</h3>
+  <ul>
+  	<li>
+		<% @genres.each do |genre| %>
+		<%= genre.name %>
+		<% end %>
+	</li>
+  </ul>
+
+
+
+<h3>ケーキ(全X件)</h3>
 
 		<% @products.each do |product| %>
 			<div class="top-product-cake">
-				<img class="sample_cake" src="top-image.jpg">
-				<h4 class="top-product-name"><%= @product.name %></h4>
-				<%= products.non_tax_price %>
+				<h4 class="top-product-name">商品名<%= link_to product.name,guest_product_path(product.id) %></h4>
+				<p>¥<%= product.non_tax_price %></p>
 			</div>
 		<% end %>
