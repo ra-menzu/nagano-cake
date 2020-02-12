@@ -4,4 +4,6 @@ class Product < ApplicationRecord
 	belongs_to :genre
 
 	attachment :image
+	has_many :products, through: :cart_items
 end
+
