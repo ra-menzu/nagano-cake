@@ -1,9 +1,15 @@
 <h3>商品一覧画面</h3>
 
-	<%= link_to "new",new_admin_product_path %>
 
-<table>
-	<thead>
+<button type="button">
+		<%= link_to "new",new_admin_product_path %>
+</button>
+
+
+
+
+<table class="table">
+	<thead class="thead-light">
 	  <tr>
 	    <th>商品ID</th>
 	    <th>商品名</th>
@@ -24,3 +30,20 @@
 	</tbody>
 	<% end %>
 </table>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
