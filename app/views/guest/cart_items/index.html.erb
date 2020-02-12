@@ -1,3 +1,4 @@
+
 <h1>ショッピングカート</h1>
 
 <br>
@@ -15,12 +16,13 @@
 	  </tr>
 	</thead>
 	<tbody>
-		<% @cart_items.each do |item| %>
+		<% current_guest.cart_items.each do |item| %>
 	  <tr>
 	  	<td><%= item.product.name %></td>
 	  	<td><%= item.product.non_tax_price%></td>
-	  	<td><%= item.quantity %></td>
-	  	<td><%= %></td>
+	  	<%= form_for(item, url: guest_cart_item_path(item)) do |f| %>
+	  	<td><%= f.number_field :quentity %></td>
+	  	<td></td>
 	  	<td></td>
 	  </tr>
 	</tbody>
