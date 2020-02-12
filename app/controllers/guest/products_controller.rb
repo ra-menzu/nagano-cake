@@ -1,11 +1,17 @@
 class Guest::ProductsController < ApplicationController
 	def index
-		@products = Product.all
 		@genres = Genre.all
+		if  params[:genre_id]
+			@genre = Genre.find(params[:genre_id])
+			@products = @genre.products.all
+		else
+			@products = Product.all
+		end
 	end
 
 	def show
 		@product = Product.find(params[:id])
+		@cart_item = CartItem.new
 	end
 
 	private
