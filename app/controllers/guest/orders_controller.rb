@@ -1,9 +1,11 @@
 class Guest::OrdersController < ApplicationController
   def new
+
     @order = Order.new
     @addresses = current_guest.delivery_addresses
     @a = []
     @delivery_addresses.each do |d|
+
 
       b = d.postal_code
       c = d.postal_adress

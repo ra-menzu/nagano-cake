@@ -2,13 +2,21 @@ Rails.application.routes.draw do
   root "homes#top"
   get "home/about" => "homes#about"
 
+
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
     get 'orders/new'
     get 'guests/new'
     resources :guests,only:[:index,:show,:edit,:update]
     resources :products
-    devise_for :guests
+    devise_scope :admin do 
+      get 'guests' => 'devise/sessions#new'
+      post 'guests' => 'devise/sessions#cteate'
+      delete 'guests' => 'devise/sessions#destroy'
+      get 'guests' => 'devise/registrations#new'
+      delete 'guests' => 'devise/registrations#destroy'
+      post 'guests' => 'devise/registrations#create'
+    end 
   end
 
   devise_for :guests

@@ -8,9 +8,13 @@ class GuestsController < ApplicationController
 	end
 
 	def update
-		guest = Guest.find(params[:id])
-		guest.update(guest_params)
-		redirect_to guest_path(guest)
+		@guest = Guest.find(params[:id])
+		@guest.update(guest_params)
+		if @guest.save
+		   redirect_to guest_path(guest)
+		else
+		   render :edit
+		end
 	end
 
 	def index
