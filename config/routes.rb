@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
-  	resources :cart_item
+  	resources :cart_items
   end
    resources :guests,only:[:edit,:update,:show,:index,:destroy]
 end

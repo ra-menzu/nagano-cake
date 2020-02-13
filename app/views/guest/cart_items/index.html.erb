@@ -1,9 +1,7 @@
 
 <h1>ショッピングカート</h1>
 
-<br>
-<%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
-<br>
+
 
 <table>
 	<thead>
@@ -16,16 +14,19 @@
 	  </tr>
 	</thead>
 	<tbody>
-		<% current_guest.cart_items.each do |item| %>
+		<% @cart_items.each do |cart_item| %>
 	  <tr>
-	  	<td><%= item.product.name %></td>
-	  	<td><%= item.product.non_tax_price%></td>
-	  	<%= form_for(item, url: guest_cart_item_path(item)) do |f| %>
-	  	<td><%= f.number_field :quentity %></td>
-	  	<td></td>
-	  	<td></td>
+	  	<td><%= cart_item.product.name %></td>
+	  	<td><%= cart_item.product.non_tax_price * 1.1 %></td>
+
+	  	<%= form_for cart_item, url: guest_cart_item_path(cart_item) do |f| %>
+	  	<td><%= f.number_field :quantity %><%= f.submit "変更" %></td>
+	  	<% end %>
+	  	<td><%= (cart_item.product.non_tax_price * 1.1).floor * cart_item.quantity %></td>
+	  	<td><%= link_to "削除する", guest_cart_item_path(cart_item), method: :delete %></td>
 	  </tr>
-	</tbody>
 	<% end %>
+	</tbody>
 </table>
+<p>合計金額</p>
 

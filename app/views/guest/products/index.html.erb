@@ -22,7 +22,7 @@
 
 					<% @products.each do |product| %>
 					<div class="top-product-cake">
-							<%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg',fallback: "no_image.jpg" %>
+							<%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg'%>
 							<h4 class="top-product-name">商品名<%= link_to product.name,guest_product_path(product.id) %></h4>
 						<p>¥<%= product.non_tax_price %></p>
 					</div>
