@@ -1,6 +1,6 @@
 <div class="product-details">
-	<%= form_for @cart_item,url:guest_cart_item_index_path do |f| %>
-		<%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg',fallback: "no_image.jpg" %>
+	<%= form_for @cart_item,url:guest_cart_items_path do |f| %>
+		<%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg' %>
 
 		<h4 class="show-product-name"><%= @product.name %></h4>
 		<p class="show-product-comment"></p>
