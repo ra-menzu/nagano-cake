@@ -5,26 +5,15 @@
 			<h2>Welcome!!</h2>
 		</div>
 	</div>
-	<div class="top-product">
 		<h4 class="favorite-title">おすすめ(最新一覧)</h4>
-		<div class="top-product-cake">
-			<img class="sample_cake" src="top-image.jpg">
-			<h4 class="top-product-name">商品名</h4>
+		<div class="container">
+			<div class="row">
+					<% @products.each do |product| %>
+					<div class="col-xs-4">
+						<%= link_to guest_product_path(product.id) do %> <%=attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake" %><% end %>
+						    <p><%= product.name %></p>
+					</div>
+				<% end %>
+			</div>
 		</div>
-
-		<div class="top-product-cake">
-			<img class="sample_cake" src="top-image.jpg">
-			<h4 class="top-product-name">商品名</h4>
-		</div>
-
-		<div class="top-product-cake">
-			<img class="sample_cake" src="top-image.jpg">
-			<h4 class="top-product-name">商品名</h4>
-		</div>
-
-		<div class="top-product-cake">
-			<img class="sample_cake" src="top-image.jpg">
-			<h4 class="top-product-name">商品名</h4>
-		</div>
-	</div>
 </section>
