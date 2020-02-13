@@ -6,6 +6,7 @@ class Guest::DeliveryAddressesController < ApplicationController
 
 	def create
 		@delivery_address = DeliveryAddress.new(delivery_address_params)
+		@delivery_address.guest_id = current_guest.id
 		@delivery_address.save
 		redirect_to guest_delivery_addresses_path
 	end
