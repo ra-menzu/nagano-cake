@@ -5,14 +5,23 @@
   </head>
   <body>
   <div class="container">
+  <%= form_for(@order, url: guest_orders_path) do |f| %>
     <h2>購入情報入力</h2>
     <h5>支払方法</h5>
-    <p><input type="radio" name="payment_method" value="credit_card">クレジットカード</p>
-    <p><input type="radio" name="payment_method" value="bank_transfer">銀行振込</p>
+    <%= f.radio_button(:payment_method, "クレジットカード") %>
+    <%= f.label(:payment_method, "クレジットカード", value: "クレジットカード" ) %>
+    <%= f.radio_button(:payment_method, "銀行振込") %>
+    <%= f.label(:payment_method, "銀行振込", value: "銀行振込") %>
     <h5>お届け先</h5>
-    <p><input type="radio" name="postal_adress" value="postal_adress">ご自身の住所</p>
+    <p>郵便番号</p>
+    <p><%= current_guest.postcode %></p>
+    <p><%= current_guest.street_adress %></p>
+    <p><%= current_guest.family_name %><%= current_guest.last_name %></p>
     <p><input type="radio" name="postal_adress" value="postal_adress">登録済住所から選択</p>
+    <%= radio_button_tag :select, :select_address %>
+    <%= f.select :Delivery_address, @a %>
     <p><input type="radio" name="postal_adress" value="postal_adress">新しいお届け先</p>
     </div>
+  <% end %>
   </body>
 </html>
