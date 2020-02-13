@@ -1,36 +1,59 @@
-<h4>登録情報編集</h4>
-<%= link_to "退会する",guests_path%>
-<%= form_for(@guest) do |f| %>
-	<table>
-		<thead>
-			<tr>
-				<th>氏名</th>
-				<td><%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%></td>
-				<td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name"%></td>
-			</tr>
-			<tr>
-				<th>カナ</th>
-				<td><%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"%></td>
-				<td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%></td>
-			</tr>
-			<tr>
-				<th>郵便番号</th>
-				<td><%= f.text_field :postcode, autofocus: true, autocomplete: "postcode"%></td>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<td><%= f.text_field :street_adress, autofocus: true, autocomplete: "street_adress"%></td>
-			</tr>
-			<tr>
-				<th>電話番号</th>
-				<td><%= f.text_field :phone_nember, autofocus: true, autocomplete: "phone_number"%></td>
-			</tr>
-			<tr>
-				<th>メールアドレス</th>
-				<td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-			</tr>
-
-		</thead>
-	</table>
-	<%= f.submit '編集内容を保存する' %>
+<% if @guest.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @guest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
+<h4>登録情報編集</h4>
+	<div class="container">
+		<div class= "row">
+			<div class="col-xs-9">
+				<%= link_to "退会する",guests_path%>
+				<%= form_for(@guest) do |f| %>
+					<table class = "table table-striped">
+						<colgroup span=""></colgroup>
+
+						<thead>
+							<tr>
+								<th>氏名</th>
+								<td><%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%></td>
+								<td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name"%></td>
+							</tr>
+							<tr>
+								<th>カナ</th>
+								<td><%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"%></td>
+								<td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%></td>
+							</tr>
+							<tr>
+								<th>郵便番号 〒</th>
+								<td><%= f.text_field :postcode, autofocus: true, autocomplete: "postcode"%></td>
+							</tr>
+							<tr>
+								<th>住所</th>
+								<td><%= f.text_field :street_adress, autofocus: true, autocomplete: "street_adress"%></td>
+							</tr>
+							<tr>
+								<th>電話番号</th>
+								<td><%= f.text_field :phone_nember, autofocus: true, autocomplete: "phone_number"%></td>
+							</tr>
+							<tr>
+								<th>メールアドレス</th>
+								<td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+							</tr>
+							<tr>
+								<th>
+									<%= f.submit '編集内容を保存する' %>
+									<% end %>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				
+			<div class="col-xs-3">
+			</div>
+

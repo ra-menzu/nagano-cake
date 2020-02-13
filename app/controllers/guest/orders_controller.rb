@@ -1,6 +1,7 @@
 class Guest::OrdersController < ApplicationController
   def new
   	@guest = current_guest
+    @delivery_address = DeliveryAddress.new
   end
 
   def index
