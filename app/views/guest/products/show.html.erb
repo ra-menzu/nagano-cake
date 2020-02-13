@@ -3,8 +3,12 @@
 		<%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg',fallback: "no_image.jpg" %>
 
 		<h4 class="show-product-name"><%= @product.name %></h4>
+		<p><%= @product.comment %></p>
 		<p class="show-product-comment"></p>
-		<div class="show-product-price">¥<%= @product.non_tax_price %>(税込)</div>
+
+		<% tax = 1.1 %>
+		<% tax_price = @product.non_tax_price * tax %>
+		<div class="show-product-price">¥<%= tax_price %>(税込)</div>
 		<%= f.hidden_field :product_id, :value => @product.id %>
 		<%= f.select :quantity, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %>
 		<%= f.submit "カートに入れる" %>
