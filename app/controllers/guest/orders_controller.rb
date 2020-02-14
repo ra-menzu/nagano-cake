@@ -26,17 +26,6 @@ class Guest::OrdersController < ApplicationController
     @gp = @g.postcode + @g.street_adress + @g.family_name + @g.last_name
 
 
-    @a = {}
-    @delivery_addresses.each do |d|
-
-
-      a = d.postal_code
-      b = d.postal_adress
-      c = d.destination
-      abc = a + b + c
-      @a["#{abc}"] = d.id
-    end
-  
     if params[:Delivery_select] == "1"
       @order_delivery = @gp
 
@@ -49,6 +38,8 @@ class Guest::OrdersController < ApplicationController
       @pc = params[:postal_code]
       @pa = params[:postal_adress]
       @de = params[:destination]
+
+      @order_delivery = @pc + @pa + @de
 
     end
 
