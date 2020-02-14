@@ -2,30 +2,56 @@ class Guest::OrdersController < ApplicationController
   def new
 
     @order = Order.new
-    @addresses = current_guest.delivery_addresses
-    @a = []
+    @delivery_addresses = current_guest.delivery_addresses
+    @a = {}
     @delivery_addresses.each do |d|
 
 
-      b = d.postal_code
-      c = d.postal_adress
-      d = d.destination
-      @a << [b + c + e]
+      a = d.postal_code
+      b = d.postal_adress
+      c = d.destination
+      abc = a + b + c
+      @a["#{abc}"] = d.id
     end
   end
+
   def index
     @orders = Order.all
   end
+
+   def confirm
+    @order = Order.new
+    @delivery_addresses = current_guest.delivery_addresses
+    
+  
+    if params[:Delivery_select] == "1"
+      @order_delivery = @gp
+
+    elsif params[:Delivery_select] == "2"
+      @delivery_address = DeliveryAddress.find(params[:Delivery_address].to_i)
+      abc = @delivery_address.postal_code + @delivery_address.postal_code + @delivery_address.destination
+      @order_delivery = abc
+
+    elsif params[:Delivery_select] == "3"
+      @pc = params[:postal_code]
+      @pa = params[:postal_adress]
+      @de = params[:destination]
+
+      @order_delivery = 
+    end
+
+    @payment = params[:order][:payment_method]
+    render :confirm
+  end
+
   def show
     @order = Order.find(params[:id])
   end
-  def confirm
-    @order = Order.find(params[:id])
-  end
+
   def create
     @order = Order.new(order_params)
     @order.save
-    redirect_to guest_orders_path
+    render :confirm
   end
   def complete
   end

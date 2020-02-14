@@ -5,7 +5,7 @@
   </head>
   <body>
   <div class="container">
-  <%= form_for(@order, url: guest_orders_path) do |f| %>
+  <%= form_for(@order, url: guest_orders_confirm_path) do |f| %>
     <h2>購入情報入力</h2>
     <h5>支払方法</h5>
     <%= f.radio_button(:payment_method, "クレジットカード") %>
@@ -13,14 +13,37 @@
     <%= f.radio_button(:payment_method, "銀行振込") %>
     <%= f.label(:payment_method, "銀行振込", value: "銀行振込") %>
     <h5>お届け先</h5>
+    <%= radio_button_tag :Delivery_select,"1" %>ご自身の住所<br>
     <p>郵便番号</p>
     <p><%= current_guest.postcode %></p>
     <p><%= current_guest.street_adress %></p>
     <p><%= current_guest.family_name %><%= current_guest.last_name %></p>
-    <p><input type="radio" name="postal_adress" value="postal_adress">登録済住所から選択</p>
-    <%= radio_button_tag :select, :select_address %>
-    <%= f.select :Delivery_address, @a %>
-    <p><input type="radio" name="postal_adress" value="postal_adress">新しいお届け先</p>
+
+
+    <p><%= radio_button_tag :Delivery_select,"2"  %>登録済住所から選択</p><br>
+    <!--%= f.select :Delivery_address, @a %-->
+    <%= select_tag 'Delivery_address', options_for_select(@a) %>
+
+
+   <p><%= radio_button_tag :Delivery_select,"3" %>新しいお届け先</p>
+   <table>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_area :postal_code %></td>
+      </tr>
+   
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_area :postal_adress %></td>
+      </tr>
+
+      <tr>
+        <th>宛名</th>
+        <td><%= f.text_area :destination %></td>
+      </tr>
+    </table>
+   
+     <span><%= f.submit '登録する' %></span>
     </div>
   <% end %>
   </body>
