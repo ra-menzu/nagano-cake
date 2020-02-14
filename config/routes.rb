@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'guests/new'
     resources :guests,only:[:index,:show,:edit,:update]
     resources :products
-    devise_scope :admin do 
+    devise_scope :admin do
       get 'guests' => 'devise/sessions#new'
       post 'guests' => 'devise/sessions#cteate'
       delete 'guests' => 'devise/sessions#destroy'
@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   namespace :guest do
   	resources :products
-  	resources :orders,only:[:index,:show,:new,:create,]
-    get :confirm
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders,only:[:index,:show,:new,:create,]
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
   	resources :cart_items
