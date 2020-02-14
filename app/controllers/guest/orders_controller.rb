@@ -22,8 +22,9 @@ class Guest::OrdersController < ApplicationController
    def confirm
     @order = Order.new
     @delivery_addresses = current_guest.delivery_addresses
-    
-  
+    @g = current_guest
+    @gp = @g.postcode + @g.street_adress + @g.family_name + @g.last_name
+
     if params[:Delivery_select] == "1"
       @order_delivery = @gp
 
@@ -37,7 +38,6 @@ class Guest::OrdersController < ApplicationController
       @pa = params[:postal_adress]
       @de = params[:destination]
 
-      @order_delivery = 
     end
 
     @payment = params[:order][:payment_method]
