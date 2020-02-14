@@ -1,0 +1,22 @@
+
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>商品名</th>
+        <th>商品説明</th>
+        <th>ジャンル</th>
+        <th>税抜価格</th>
+        <th>販売ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @product.name %></td>
+        <td><%= @product.comment %></td>
+        <td><%= @product.genre.name %></td>
+        <td><%= @product.non_tax_price %>円</td>
+        <td><%= @product.sales_status %></td>
+      </tr>
+    </tbody>
+
+
