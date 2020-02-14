@@ -13,14 +13,18 @@
     <%= f.radio_button(:payment_method, "銀行振込") %>
     <%= f.label(:payment_method, "銀行振込", value: "銀行振込") %>
     <h5>お届け先</h5>
-    <p>郵便番号</p>
-    <p><%= current_guest.postcode %></p>
-    <p><%= current_guest.street_adress %></p>
-    <p><%= current_guest.family_name %><%= current_guest.last_name %></p>
+    <p><input type="radio" name="postal_adress" value="postal_adress">ご自身の住所</p>
+    <p>〒<%= current_guest.postcode %><%= current_guest.street_adress %><%= current_guest.family_name %><%= current_guest.last_name %></p>
     <p><input type="radio" name="postal_adress" value="postal_adress">登録済住所から選択</p>
-    <%= radio_button_tag :select, :select_address %>
-    <%= f.select :Delivery_address, @a %>
+    <%= select_tag 'Delivery_address', options_for_select(@a) %>
     <p><input type="radio" name="postal_adress" value="postal_adress">新しいお届け先</p>
+    <p><%= f.label :郵便番号 %>
+    <%= text_field_tag :Postcode %>ハイフンなし</p>
+    <p><%= f.label :住所 %>
+    <%= text_field_tag :Street_address %></p>
+    <p><%= f.label :宛名 %>
+    <%= text_field_tag :Family_name %></p>
+    <%= f.submit "購入画面へ進む", class:"btn btn-info btn-md" %>
     </div>
   <% end %>
   </body>

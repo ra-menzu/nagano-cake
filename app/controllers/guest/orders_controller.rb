@@ -2,15 +2,16 @@ class Guest::OrdersController < ApplicationController
   def new
 
     @order = Order.new
-    @addresses = current_guest.delivery_addresses
-    @a = []
+    @delivery_addresses = current_guest.delivery_addresses
+    @a = {}
     @delivery_addresses.each do |d|
 
 
-      b = d.postal_code
-      c = d.postal_adress
-      d = d.destination
-      @a << [b + c + e]
+      a = d.postal_code
+      b = d.postal_adress
+      c = d.destination
+      abc = a + b + c
+      @a["#{abc}"] = d.id
     end
   end
   def index
