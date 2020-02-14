@@ -23,9 +23,9 @@ Rails.application.routes.draw do
 
   namespace :guest do
   	resources :products
-  	resources :orders,only:[:index,:show,:new,:create,]
-    get :confirm
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders,only:[:index,:show,:new,:create,]
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
   	resources :order_histories
   	resources :cart_items
