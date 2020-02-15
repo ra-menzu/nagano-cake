@@ -16,6 +16,7 @@ class Guest::OrdersController < ApplicationController
   end
 
   def index
+    @guest = current_guest
     @orders = Order.all
     @ordered_item = OrderedItem.all
   end
