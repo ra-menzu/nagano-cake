@@ -53,9 +53,12 @@
       	<th>小計</th>
       </tr>
     </thead>
-    <% @orders.each do |o| %>
-      <tr>
-      	<td><%= o.
     <tbody>
+    <% @order.ordered_items.each do |i| %>
+      <tr>
+      	<td><%= i.product_item %></td>
+        <td><%= i. %></td>
+        <td><%= i.
+    </tbody>
   </body>
 </html>
