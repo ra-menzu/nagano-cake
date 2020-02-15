@@ -14,9 +14,10 @@
         <td><%= @product.name %></td>
         <td><%= @product.comment %></td>
         <td><%= @product.genre.name %></td>
-        <td><%= @product.non_tax_price %>円</td>
+        <td><%= (@product.non_tax_price* 1.1).floor %>(<%= @product.non_tax_price %>)円</td>
         <td><%= @product.sales_status %></td>
       </tr>
     </tbody>
 
+<%= link_to "編集する", edit_admin_product_path %>
 

@@ -1,0 +1,43 @@
+<h2>注文詳細画面</h2>
+<table>
+	<thead>
+		<tr>
+			<th>購入者</th>
+			<td><%= @guest.family_name %><%= @guest.last_name %></td>
+		</tr>
+		<tr>
+			<th>配送先</th>
+			<td><%= %></td>
+		</tr>
+		<tr>
+			<th>支払方法</th>
+			<td><%=  %></td>
+		</tr>
+		<tr>
+			<th>注文ステータス</th>
+			<td><%= select :order_status, Order.order_statuses.keys, {入金待ち:0,入金確認:1,製作中:2,発送準備中:3,発送済み:4} %></td>
+		</tr>
+
+</table>
+
+<table>
+	<tr>
+		<th>商品名</th>
+		<th>単価（税込）</th>
+		<th>数量</th>
+		<th>小計</th>
+		<th>制作ステータス</th>
+	</tr>
+
+		<% @product.each do |product| %>
+		<% @ordered_items.each do |ordered_item| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= ordered_item.tax_included_price %></td>
+			<td><%= ordered_item.quantity %></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<% end %>
+		<% end %>
+</table>
