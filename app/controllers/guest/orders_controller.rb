@@ -25,6 +25,7 @@ class Guest::OrdersController < ApplicationController
     @g = current_guest
     @gp = @g.postcode + @g.street_adress + @g.family_name + @g.last_name
 
+
     if params[:Delivery_select] == "1"
       @order_delivery = @gp
 
@@ -34,8 +35,8 @@ class Guest::OrdersController < ApplicationController
       @order_delivery = abc
 
     elsif params[:Delivery_select] == "3"
-      @pc = params[:post_code]
-      @pa = params[:postal_address]
+      @pc = params[:postal_code]
+      @pa = params[:postal_adress]
       @de = params[:destination]
 
       @order_delivery = @pc + @pa + @de
