@@ -16,6 +16,7 @@ class Guest::OrdersController < ApplicationController
   end
 
   def index
+    @guest = current_guest
     @orders = Order.all
   end
 
@@ -66,7 +67,6 @@ class Guest::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.guest_id = current_guest.id
-
     if @order.save!
 
       current_guest.cart_items.each do |item|
