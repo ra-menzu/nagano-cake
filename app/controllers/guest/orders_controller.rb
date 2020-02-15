@@ -21,6 +21,7 @@ class Guest::OrdersController < ApplicationController
 
    def confirm
     @order = Order.new
+    @del = DeliveryAddress.new
     @delivery_addresses = current_guest.delivery_addresses
     @g = current_guest
     @gp = @g.postcode + @g.street_adress + @g.family_name + @g.last_name
@@ -40,6 +41,16 @@ class Guest::OrdersController < ApplicationController
       @de = params[:destination]
 
       @order_delivery = @pc + @pa + @de
+
+      @del.postal_code = @pc
+      @del.postal_adress = @pa
+      @del.destination = @de
+      @del.guest_id = current_guest.id
+
+      @del.save!
+
+    elsif render :new
+
 
     end
 
@@ -72,6 +83,7 @@ class Guest::OrdersController < ApplicationController
 
     end
 
+      current_guest.cart_items.destroy_all
       redirect_to guest_orders_complete_path
     else
       render :confirm
