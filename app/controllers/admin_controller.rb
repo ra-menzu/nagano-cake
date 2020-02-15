@@ -1,8 +1,5 @@
 class AdminController < ApplicationController
 	def top
-	end
-	def index
-	end
-	def show
+		@order = Order.all
 	end
 end

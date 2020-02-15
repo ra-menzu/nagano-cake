@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root "homes#top"
   get "home/about" => "homes#about"
-  get'admin/top' => 'admin#index'
-  get'admin/index'=> 'admin#index'
-  get'admin/show' => 'admin#show'
+  get'admin/top' => 'admin#top'
 
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
