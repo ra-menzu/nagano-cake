@@ -18,6 +18,7 @@ class Guest < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :delivery_addresses, dependent: :destroy
+  has_many :ordered_items,through: :orders
   acts_as_paranoid
 end
 
