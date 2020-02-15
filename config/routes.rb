@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
-    get 'orders/new'
-    resources :guests,only:[:index,:show,:edit,:update]
+    resources :orders, only: [:index, :show, :update]
+    resources :guests, only: [:index,:show,:edit,:update]
     resources :products
     devise_scope :admin do
       get 'guests/sign_in' => 'devise/sessions#new'

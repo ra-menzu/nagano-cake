@@ -1,17 +1,24 @@
 class Admin::OrdersController < ApplicationController
-  def new
-  	@guest = current_guest
-  end
   def index
-  	@guest = Guest.find(params[:id])
-  	@orders = @guest.orders
+    @ordered_items = OrderedItem.all
+    @guests = Guest.all
+    @orders = Order.all
   end
   def show
-  	@order = Order.find(params[:id])
+     @ordered_items = OrderedItem.all
+     @guest = Guest.find(params[:id])
+     @order = Order.all
+     @product = Product.all
   end
-  def confirm
-  	@order = Order.find(params[:id])
+
+  def update
+    @order = Order.find(params[:id])
+    @Order.update(Order_params)
+    redirect_to admin_orders_path
   end
-  def complete
+
+  private
+  def order_params
+      params.require(:order).permit(:id, :order_status)
   end
 end
