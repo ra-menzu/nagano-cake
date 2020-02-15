@@ -44,6 +44,10 @@ class Guest::OrdersController < ApplicationController
     end
 
     @payment = params[:order][:payment_method]
+    @cart_items = current_guest.cart_items
+    @cart_item = CartItem.new
+    @postage = 800
+    @ordered_item = OrderedItem.new
     render :confirm
   end
 
@@ -53,16 +57,39 @@ class Guest::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    render :confirm
+    @order.guest_id = current_guest.id
+
+    if @order.save!
+
+      current_guest.cart_items.each do |item|
+
+      @ordered_item = OrderedItem.new
+      @ordered_item.order_id = @order.id
+      @ordered_item.tax_included_price = item.product.non_tax_price * 1.1
+      @ordered_item.product_id = item.product_id
+      @ordered_item.quantity = item.quantity
+      @ordered_item.save!
+
+    end
+
+      redirect_to guest_orders_complete_path
+    else
+      render :confirm
+    end
   end
+
   def complete
   end
-  def order_params
-    params.require(:order).permit(:guest_id,:postcode,:postal_code,:order_id,:postal_adress,:destination,:payment_method )
-  end
-  def delivery_address_params
-    params.require(:delivery_address).permit(:postal_code, :postal_adress,:destination)
-  end
+
+  private
+    def order_params
+      params.require(:order).permit(:guest_id,:postcode,:postal_code,:order_id,:postal_adress,:destination,:payment_method )
+    end
+    def ordered_item_params
+      params.require(:ordered_item).permit(:order_id,:product_id,:quantity,:tax_included_price,:production_status )
+    end
+    def delivery_address_params
+      params.require(:delivery_address).permit(:postal_code, :postal_adress,:destination)
+    end
 end
 
