@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root "homes#top"
   get "home/about" => "homes#about"
   get'admin/top' => 'admin#top'
@@ -6,16 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
     get 'orders/new'
-    resources :guests,only:[:index,:show,:edit,:update]
     resources :products
-    devise_scope :admin do
-      get 'guests/sign_in' => 'devise/sessions#new'
-      post 'guests/sign_in' => 'devise/sessions#cteate'
-      delete 'guests/sign_out' => 'devise/sessions#destroy'
-      get 'guests/sign_up' => 'devise/registrations#new'
-      delete 'guests' => 'devise/registrations#destroy'
-      post 'guests' => 'devise/registrations#create'
-    end
   end
   devise_for :guests
 

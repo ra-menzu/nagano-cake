@@ -71,7 +71,7 @@ class Guest::OrdersController < ApplicationController
       @ordered_item.save!
 
     end
-
+      current_guest.cart_items.destroy_all
       redirect_to guest_orders_complete_path
     else
       render :confirm
