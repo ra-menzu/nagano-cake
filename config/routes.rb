@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
-    get 'orders/new'
+    resources :orders, only: [:index, :show, :update]
     resources :products
   end
   devise_for :guests
