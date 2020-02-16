@@ -1,10 +1,21 @@
 class Admin::OrdersController < ApplicationController
-    before_action :authenticate_admin!
+    # before_action :authenticate_admin!
 
 
 
   def index
-    @orders = Order.all
+    if params[:day]
+       @orders = Order.created_today
+    else params[:id]
+       @orders = Order.where(guest_id: params[:id].to_i)
+    else
+      @orders = Order.all
+    end
+
+
+
+
+
 
     # @ordered_item = Order.find(params[:id])
     # @sum = 0
