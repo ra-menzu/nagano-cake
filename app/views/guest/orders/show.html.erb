@@ -4,6 +4,29 @@
   	<title>注文履歴詳細</title>
   </head>
   <body>
+  <p>注文情報</p>
+    <table class="table1">
+      <tr>
+      	<th>注文日</th>
+        <td><%= @order.created_at.strftime('%Y年%m月%d日')%></td>
+      </tr>
+      <tr>
+      	<th>配送先</th>
+      	<td><p>〒<%= @order.postal_code %>
+      		<%= @order.postal_adress %>
+      		<%= @order.destination %></p>
+      	</td>
+      </tr>
+      <tr>
+      	<th>支払い方法</th>
+      	<td><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+      	<th>ステータス</th>
+      	<td><%=  %></td>
+      </tr>
+    </table>
+
 
   <div class="container">
     <div class="row">

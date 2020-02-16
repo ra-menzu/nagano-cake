@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   devise_for :guests
 
   resources :guests,only:[:edit,:update,:show,:index,:destroy]
+  resources :ordered_items
 
   namespace :guest do
     resources :products
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
     resources :order_histories
     resources :cart_items
+
     delete 'cart_item' => 'cart_items#destroy_all'
   end
 end

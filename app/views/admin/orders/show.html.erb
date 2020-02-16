@@ -1,14 +1,18 @@
 
+<main role="main" class="container">
+
 <h2>注文詳細画面</h2>
 <table>
 	<thead>
 		<tr>
 			<th>購入者</th>
-			<td><%= @order.guest.family_name %><% @order.guest.last_name %></td>
+			<td><%= @order.guest.family_name %>
+				<% @order.guest.last_name %>
+			</td>
 		</tr>
 		<tr>
 			<th>配送先</th>
-			<td><% %></td>
+			<td><%=@order.postal_code %><%=@order.postal_adress %><%=@order.destination %></td>
 		</tr>
 		<tr>
 			<th>支払方法</th>
@@ -22,25 +26,34 @@
 		        <input type="submit" value="更新">
 		        <% end %>
 			</td>
-		</tr>
 
+		</tr>
 </table>
 
-<table>
-	<tr>
+<table class="table table-bordered">
+<thead class="thead-light">
+	<tr class="active">
 		<th>商品名</th>
 		<th>単価（税込）</th>
 		<th>数量</th>
 		<th>小計</th>
-		<th>制作ステータス</th>
+		<th>製作ステータス</th>
+		<th></th>
 	</tr>
+         <% @order.ordered_items.each do |item| %>
 		<tr>
-			<td><%= @ordered_item.product.name %></td>
-			<td><%= @ordered_item.tax_included_price %></td>
-			<td><%= @ordered_item.quantity %></td>
-			<td></td>
-			<td></td>
-		</tr>
+			<td><%= item.product.name %></td>
+			<td><%= item.tax_included_price %></td>
+			<td><%= item.quantity %></td>
+			<td><%= item.quantity * item.tax_included_price %>円</td>
 
+			<%= form_for item, url:admin_order_path do |f| %>
+			<td><%= f.select :production_status,OrderedItem.production_statuses.keys %></td>
+			<td><input type="submit" value="更新"></td>
+			<% end %>
+		<% end %>
+		</tr>
+</thead>
 </table>
 
+</thead></table></main>

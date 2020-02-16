@@ -1,4 +1,6 @@
 class Guest::DeliveryAddressesController < ApplicationController
+		before_action :authenticate_guest!
+
 	def index
 		@delivery_address = DeliveryAddress.new
 		@delivery_addresses = DeliveryAddress.all
