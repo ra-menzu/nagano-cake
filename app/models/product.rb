@@ -4,5 +4,5 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	attachment :image
 	has_many :ordered_items,dependent: :destroy
-	has_many :ordered_items,through: :orders
+	has_many :orders,through: :ordered_items
 end
