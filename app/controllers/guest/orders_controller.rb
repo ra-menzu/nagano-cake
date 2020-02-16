@@ -1,4 +1,6 @@
 class Guest::OrdersController < ApplicationController
+    before_action :authenticate_guest!
+
   def new
 
     @order = Order.new
