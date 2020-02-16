@@ -43,7 +43,22 @@
 
 		<h4>お届け先</h4>
 		<%= @order_delivery %>
-		<%= f.hidden_field :Dlivery_address, :value => @order_delivery %>
-
+		<% if @delivery_select == "1" %>
+		    <%= hidden_field_tag :delivery_select,"1" %>
+			<%= hidden_field_tag :postal_code,current_guest.postcode %>
+			<%= hidden_field_tag :street_adress,current_guest.street_adress %>
+			<%= hidden_field_tag :family_name, current_guest.family_name %>
+			<%= hidden_field_tag :last_name, current_guest.last_name %>
+	    <% elsif @delivery_select == "2" %>
+	    
+			<%= hidden_field_tag :postal_code,@delivery_address.postal_code %>
+			<%= hidden_field_tag :postal_adress,@delivery_address.postal_adress %>
+			<%= hidden_field_tag :destination,@delivery_address.destination %>
+    	<% elsif @delivery_select == "3" %>
+    	  
+			<%= hidden_field_tag :postal_code,@del.postal_code%>
+			<%= hidden_field_tag :postal_adress,@del.postal_adress %>
+			<%= hidden_field_tag :destination,@del.destination %>
+		<% end %>
 		<%= f.submit "注文を確定する" %>
 	<% end %>
