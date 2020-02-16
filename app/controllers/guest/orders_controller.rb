@@ -27,17 +27,17 @@ class Guest::OrdersController < ApplicationController
     @delivery_addresses = current_guest.delivery_addresses
     @g = current_guest
     @gp = @g.postcode + @g.street_adress + @g.family_name + @g.last_name
+    @delivery_select = params[:Delivery_select]
 
-
-    if params[:Delivery_select] == "1"
+    if @delivery_select == "1"
       @order_delivery = @gp
 
-    elsif params[:Delivery_select] == "2"
+    elsif @delivery_select == "2"
       @delivery_address = DeliveryAddress.find(params[:Delivery_address].to_i)
       abc = @delivery_address.postal_code + @delivery_address.postal_code + @delivery_address.destination
       @order_delivery = abc
 
-    elsif params[:Delivery_select] == "3"
+    elsif @delivery_select == "3"
       @pc = params[:postal_code]
       @pa = params[:postal_adress]
       @de = params[:destination]
@@ -76,9 +76,17 @@ class Guest::OrdersController < ApplicationController
     @order = Order.new
 
     @order.guest_id = current_guest.id
-    @order.postal_code
-    @order.postal_adress
-    @order.destination
+
+      if params[:Delivery_select] == "1"
+      @order.postal_code = params[:postal_code]
+      @order.postal_adress = params[:street_adress]
+      @order.destination = params[:family_name] + params[:last_name]
+      else
+      @order.postal_code = params[:postal_code]
+      @order.postal_adress = params[:postal_adress]
+      @order.destination = params[:destination]
+      end
+
 
     @order.postage = 800
     @order.billing_amount = params[:order][:billing_amount]
@@ -117,6 +125,10 @@ class Guest::OrdersController < ApplicationController
     end
     def delivery_address_params
       params.require(:delivery_address).permit(:postal_code, :postal_adress,:destination)
+    end
+
+    def guest_params
+      params.require(:guest).permit(:family_name,:last_name,:family_name_kana,:last_name_kana,:postcode,:street_adress,:phone_nember,:email)
     end
 end
 
