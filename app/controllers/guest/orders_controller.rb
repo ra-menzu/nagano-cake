@@ -77,7 +77,7 @@ class Guest::OrdersController < ApplicationController
 
     @order.guest_id = current_guest.id
 
-      if params[:Delivery_select] == "1"
+      if params[:delivery_select] == "1"
       @order.postal_code = params[:postal_code]
       @order.postal_adress = params[:street_adress]
       @order.destination = params[:family_name] + params[:last_name]

@@ -44,7 +44,7 @@
 		<h4>お届け先</h4>
 		<%= @order_delivery %>
 		<% if @delivery_select == "1" %>
-		 
+		    <%= hidden_field_tag :delivery_select,"1" %>
 			<%= hidden_field_tag :postal_code,current_guest.postcode %>
 			<%= hidden_field_tag :street_adress,current_guest.street_adress %>
 			<%= hidden_field_tag :family_name, current_guest.family_name %>
