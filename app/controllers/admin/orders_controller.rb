@@ -7,12 +7,10 @@ class Admin::OrdersController < ApplicationController
   end
   def show
 
-     @order = Order.find(params[:id])
      @ordered_item = OrderedItem.find(params[:id])
-     @ordered_items = OrderedItem.all
-     @produ
-  end
+     @order = Order.find(params[:id])
 
+  end
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)

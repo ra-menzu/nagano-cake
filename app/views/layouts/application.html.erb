@@ -35,6 +35,17 @@
                       <li class="">
                         <%= link_to "カート", guest_cart_items_path %>
                       </li>
+                      <% elsif admin_signed_in? %>
+                      <li class="">
+                      </li>
+                      <li class="" >
+                      </li>
+                      <li class="">
+                        <%= link_to "アバウト" %>
+                      </li>
+                      <li class="">
+                        <%= link_to "カート", guest_cart_items_path %>
+                      </li>
                     <% else %>
                       <li>
                         <%= link_to "ログイン", new_guest_session_path %>
