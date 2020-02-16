@@ -1,8 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def index
     @ordered_items = OrderedItem.all
-    @guests = Guest.all
-    @orders = Order.all
   end
   def show
      @ordered_item = OrderedItem.find(params[:id])

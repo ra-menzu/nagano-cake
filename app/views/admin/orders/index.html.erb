@@ -13,22 +13,14 @@
 				<th>注文ステータス</th>
 			</tr>
 		</thead>
-			<% @guests.each do |guest| %>
-				<% @ordered_items.each do |ordered_item| %>
-						<tr>
-							<td>
-								<%= ordered_item.created_at %>
-							</td>
-							<td>
-								<%= guest.family_name %>
-								<%= guest.last_name %>
-							</td>
-							<td>
-								<%= ordered_item.quantity %>
-							</td>
-							<td>
-							</td>
-						</tr>
-				<% end %>
+		<tbody>
+			<% @ordered_items.each do |ordered_item| %>
+					<tr>
+						<td><%= ordered_item.created_at %></td>
+						<td><%= ordered_item.order.guest.family_name %></td>
+						<td><%= ordered_item.quantity%></td>
+						<td><%= ordered_item.order.order_status%></td>
+					</tr>
 			<% end %>
+		</tbody>
 	</table>
