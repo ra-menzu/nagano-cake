@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_090543) do
     t.datetime "updated_at", null: false
     t.boolean "delete_user_status", default: false, null: false
     t.datetime "deleted_at"
+    t.boolean "admin", default: false
     t.index ["deleted_at"], name: "index_guests_on_deleted_at"
     t.index ["email"], name: "index_guests_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
