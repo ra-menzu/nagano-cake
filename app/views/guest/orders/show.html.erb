@@ -8,7 +8,7 @@
     <table class="table1">
       <tr>
       	<th>注文日</th>
-        <td><%= @order.created_at %></td>
+        <td><%= @order.created_at.strftime('%Y年%m月%d日')%></td>
       </tr>
       <tr>
       	<th>配送先</th>
@@ -52,16 +52,14 @@
       	<th>個数</th>
       	<th>小計</th>
       </tr>
-      <tr>
-        <td><%= @order.products.name %></td>
-      </tr>
     </thead>
     <tbody>
     <% @order.ordered_items.each do |i| %>
       <tr>
-      	<td><%= %></td>
-        <td></td>
-        <td></td>
+      	<td><%= i.product.name %></td>
+        <td><%= i.tax_included_price %></td>
+        <td><%= i.quantity %></td>
+        <td><%= i.tax_included_price * i.quantity %></td>
     <% end %>
     </tbody>
   </body>
