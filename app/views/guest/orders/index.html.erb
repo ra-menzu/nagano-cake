@@ -23,8 +23,8 @@
         <tr>
             <td><%= o.created_at.strftime("%Y年%-m月%-d日") %></td>
             <td>〒<%= o.postal_code %><%= o.postal_adress %><%= o.destination %></td>
-            <td></td>
-            <td></td>
+            <td><%= o.payment_method %></td>
+            <td><% o.order_status %></td>
             <td></td>
             <td></td>
         </tr>
@@ -32,5 +32,4 @@
     </tbody>
     </table>
     </div>
-  
 </html>
