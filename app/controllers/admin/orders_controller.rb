@@ -3,17 +3,19 @@ class Admin::OrdersController < ApplicationController
     @ordered_items = OrderedItem.all
     @guests = Guest.all
     @orders = Order.all
+
   end
   def show
+
+     @order = Order.find(params[:id])
+     @ordered_item = OrderedItem.find(params[:id])
      @ordered_items = OrderedItem.all
-     @guest = Guest.find(params[:id])
-     @order = Order.all
-     @product = Product.all
+     @produ
   end
 
   def update
     @order = Order.find(params[:id])
-    @Order.update(Order_params)
+    @order.update(order_params)
     redirect_to admin_orders_path
   end
 
