@@ -14,15 +14,16 @@
                 <nav class="nav navbar-nav navbar-left">
                     <h1><%= link_to "ながのcake",root_path %></h1>
                 </nav>
-                <nav class="nav navbar-nav navar-center">
-                  <li class="center">
-                      <%= link_to "検索画面"%>
-                      <%= link_to "商品一覧", admin_products_path %>
-                  </li>
-                </nav>
                 <nav>
                   <ul class="nav navbar-nav navbar-right">
                     <% if guest_signed_in? %>
+                    <nav class="nav navbar-nav navar-center">
+                      <li class="center">
+                        <%= link_to "検索画面"%>
+                        <%= link_to "商品一覧", guest_products_path %>
+                     </li>
+                    </nav>
+                    <ul class="nav navbar-nav navbar-right">
                       <li class="">
                         <%= link_to "マイページ", guest_path(current_guest.id)%>
                       </li>
@@ -35,7 +36,30 @@
                       <li class="">
                         <%= link_to "カート", guest_cart_items_path %>
                       </li>
+                    </ul>
+                      <% elsif admin_signed_in? %>
+                      <li class="">
+                        <%= link_to "商品一覧",admin_products_path %>
+                      </li>
+                      <li class="" >
+                        <%= link_to "会員一覧", admin_guests_path %>
+                      </li>
+                      <li class="">
+                        <%= link_to "注文商品一覧", admin_orders_path %>
+                      </li>
+                      <li class="">
+                        <%= link_to "ジャンル管理", admin_genres_path %>
+                      </li>
+                      <li class="">
+                        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                      </li>
                     <% else %>
+                    <nav class="nav navbar-nav navar-center">
+                      <li class="center">
+                        <%= link_to "検索画面"%>
+                        <%= link_to "商品一覧", guest_products_path %>
+                      </li>
+                    </nav>
                       <li>
                         <%= link_to "ログイン", new_guest_session_path %>
                       </li>
