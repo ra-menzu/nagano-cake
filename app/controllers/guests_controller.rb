@@ -1,4 +1,6 @@
 class GuestsController < ApplicationController
+		before_action :authenticate_guest!
+
 	def show
 		@guest = Guest.find(params[:id])
 	end
@@ -11,7 +13,7 @@ class GuestsController < ApplicationController
 		@guest = Guest.find(params[:id])
 		@guest.update(guest_params)
 		if @guest.save
-		   redirect_to guest_path(guest)
+		   redirect_to guest_path(@guest)
 		else
 		   render :edit
 		end

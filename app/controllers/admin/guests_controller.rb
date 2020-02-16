@@ -1,4 +1,6 @@
 class Admin::GuestsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @guests = Guest.with_deleted
   end
