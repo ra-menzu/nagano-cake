@@ -8,8 +8,8 @@ class Admin::OrdersController < ApplicationController
        @orders = Order.created_today
     else params[:id]
        @orders = Order.where(guest_id: params[:id].to_i)
-    else
-      @orders = Order.all
+    # else
+    #   @orders = Order.all
     end
 
 
