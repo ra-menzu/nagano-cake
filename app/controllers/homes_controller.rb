@@ -1,8 +1,4 @@
 class HomesController < ApplicationController
-<<<<<<< HEAD
-
-=======
->>>>>>> 5939bdf7f89629617f93ba27897c3f02089cd543
 
   def top
 	@products = Product.all
