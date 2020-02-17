@@ -1,7 +1,11 @@
 class HomesController < ApplicationController
 
   def top
-	@products = Product.all
+  @products = []
+  @genres = Genre.where(class_status: '0')
+  @genres.each do |genre|
+	@products << genre.products.last
+    end
   end
 
   def about
