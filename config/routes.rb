@@ -6,16 +6,18 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
   get'admin/top' => 'admin#top'
 
+
   namespace :admin do
     resources :genres, only: [:index, :edit, :update, :create]
     resources :orders, only: [:index, :show, :update]
+    patch 'orders/:id/status' => 'orders#production_status_update'
     resources :products
     resources :guests
   end
-  devise_for :guests
 
+
+  devise_for :guests
   resources :guests,only:[:edit,:update,:show,:index,:destroy]
-  resources :ordered_items
 
   namespace :guest do
     resources :products
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
     resources :delivery_addresses,only:[:index,:create,:edit,:update,:destroy]
     resources :order_histories
     resources :cart_items
-
     delete 'cart_item' => 'cart_items#destroy_all'
   end
 end
