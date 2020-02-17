@@ -17,6 +17,7 @@ class Admin::OrdersController < ApplicationController
 
 
 
+
     # @ordered_item = Order.find(params[:id])
     # @sum = 0
     # @total_quantity = []
@@ -24,23 +25,23 @@ class Admin::OrdersController < ApplicationController
     # 配列に値を入れる total_quantity = [10]
     # 2つめの注文の合計を出す <= 3
     # 配列に値を入れる total_quantity = [10,3]
-
   end
   def show
-
-     @ordered_item = OrderedItem.find(params[:id])
      @order = Order.find(params[:id])
-
-
+     @ordered_item = @order.ordered_items
   end
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to admin_orders_path
+    @ordered_item = @order.ordered_items
+ 
+    redirect_to admin_order_path(@order)
   end
 
   private
   def order_params
       params.require(:order).permit(:id, :order_status)
+  end
+  def order_item_params
+      params.require(:order_item).permit(:order_id, :product_id, :tax_included_price, :production_status, :quantity)
   end
 end
