@@ -3,7 +3,9 @@
 <% @order = Order.where(created_at: Time.zone.now.all_day)%>
 
 
-<p>本日の注文数<%= link_to admin_orders_path(day: 1) do %>
+
+
+<p>本日の注文数<%= link_to admin_orders_path(day: 1)do %>
  <%= @order.count %>件</p>
 
  <% end %>
