@@ -1,4 +1,5 @@
 class Guest::CartItemsController < ApplicationController
+    before_action :authenticate_guest!
 
 	def index
 		@cart_items = current_guest.cart_items
