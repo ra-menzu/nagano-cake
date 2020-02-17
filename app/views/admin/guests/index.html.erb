@@ -16,6 +16,7 @@
 		     <% @name = @family_name + @last_name %>
 		     <%= link_to @name ,admin_guest_path(guest.id) %>
 		</td>
+
 		<td><%= guest.email %></td>
 		<td><% if guest.delete_user_status %>
 			退会済み

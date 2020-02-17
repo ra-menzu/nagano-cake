@@ -4,7 +4,9 @@ class HomesController < ApplicationController
     @products = []
     @genres = Genre.where(class_status: '0')
     @genres.each do |genre|
-      @products << genre.products.last
+      if genre.products.last
+        @products << genre.products.last
+      end
     end
   end
 
