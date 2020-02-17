@@ -1,5 +1,4 @@
 class GuestsController < ApplicationController
-	before_action :authenticate_guest!
 
 	def show
 		@guest = Guest.find(params[:id])
