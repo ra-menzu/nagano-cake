@@ -11,6 +11,7 @@ class Guest::ProductsController < ApplicationController
 	end
 
 	def show
+		@genres = Genre.where(class_status: '0')
 		@product = Product.find(params[:id])
 		@cart_item = CartItem.new
 	end
