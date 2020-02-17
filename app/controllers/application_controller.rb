@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	end
 
   private
-	def after_sign_in_path(resource)
+	def after_sign_in_path_for(resource)
 		case resource
 		when Admin
 			admin_top_path
