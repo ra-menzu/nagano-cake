@@ -1,5 +1,4 @@
 class Guest::ProductsController < ApplicationController
-	    before_action :authenticate_guest!
 
 	def index
 		@genres = Genre.all

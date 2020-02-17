@@ -31,7 +31,13 @@
 	</tr>
 	<tr>
 		<th>会員ステータス</th>
-		<td><%= @guest.delete_user_status %></td>
+		<td>
+			<% if @guest.delete_user_status %>
+			退会済み
+			<% else %>
+			有効
+			<% end %>
+		</td>
 	</tr>
 
 
