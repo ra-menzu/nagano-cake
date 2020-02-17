@@ -10,11 +10,7 @@
     <% @guests.each do |guest| %>
 	<tr>
 		<td><%= guest.id %></td>
-		<td> <% @family_name = guest.family_name%>
-			 <% @last_name = guest.last_name %>
-		     <% @name = @family_name + @last_name %>
-		     <%= link_to @name ,admin_guest_path(guest.id) %>
-		</td>
+		<td><%= link_to guest.family_name,admin_guest_path(guest.id) %><%= link_to guest.last_name,admin_guest_path(guest.id) %></td>
 		<td><%= guest.email %></td>
 		<td><% if guest.delete_user_status %>
 			退会済み

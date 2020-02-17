@@ -6,9 +6,7 @@
 	<thead>
 		<tr>
 			<th>購入者</th>
-			<td><%= link_to @order.guest.family_name,admin_guest_path(@order.guest.id) %>
-				<%= link_to @order.guest.last_name,admin_guest_path(@order.guest.id)  %>
-			</td>
+			<td><%= @order.guest.family_name %><%= @order.guest.last_name %></td>
 		</tr>
 		<tr>
 			<th>配送先</th>
