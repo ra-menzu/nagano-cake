@@ -25,7 +25,7 @@
 	<%= form_for(@order,url:guest_orders_path) do |f| %>
 			<tr>
 				<th>送料</th>
-				<td><%= @order.postage %></td>
+				<td>800<%= @order.postage %></td>
 			</tr>
 			<tr>
 				<th>商品合計</th>
@@ -50,12 +50,12 @@
 			<%= hidden_field_tag :family_name, current_guest.family_name %>
 			<%= hidden_field_tag :last_name, current_guest.last_name %>
 	    <% elsif @delivery_select == "2" %>
-	    
+
 			<%= hidden_field_tag :postal_code,@delivery_address.postal_code %>
 			<%= hidden_field_tag :postal_adress,@delivery_address.postal_adress %>
 			<%= hidden_field_tag :destination,@delivery_address.destination %>
     	<% elsif @delivery_select == "3" %>
-    	  
+
 			<%= hidden_field_tag :postal_code,@del.postal_code%>
 			<%= hidden_field_tag :postal_adress,@del.postal_adress %>
 			<%= hidden_field_tag :destination,@del.destination %>
