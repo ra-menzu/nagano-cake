@@ -5,9 +5,9 @@ class Admin::OrdersController < ApplicationController
 
   def index
     if params[:day]
-       @orders = Order.created_at
+       @orders = Order.where(created_at: Time.zone.now.all_day)
     elsif params[:id]
-       @orders = Order.where(guest_id: params[:id].to_i)
+        @orders = Order.where(guest_id: params[:id])
     else
       @orders = Order.all
     end
@@ -42,6 +42,6 @@ class Admin::OrdersController < ApplicationController
       params.require(:order).permit(:id, :order_status)
   end
   def order_item_params
-      params.require(:order_item).permit(:order_id, :product_id, :tax_included_price, :production_status, :quantity)
+      params.require(:order_item).permit(:order_id, :product_id, :tax_included_price, :production_status, :quantity, :created_at)
   end
 end
