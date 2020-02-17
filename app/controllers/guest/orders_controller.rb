@@ -20,7 +20,6 @@ class Guest::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @ordered_items = OrderedItem.all
-    current_guest.ordered_items = @ordered_items
   end
 
    def confirm

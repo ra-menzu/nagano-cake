@@ -17,7 +17,7 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @genre.update(genre_params)
     if @genre.class_status == "無効"
-      　@genre.products.update_all(sales_status: 1)
+      @genre.products.update_all(sales_status: 1)
     end
     redirect_to admin_genres_path
   end
