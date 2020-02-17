@@ -28,6 +28,8 @@
     font-size:18px;
 }
 
+#container{}
+
 #main{
 	width:100%;
 	height:600px;
@@ -71,6 +73,14 @@
 
 .top-product-name{
 	padding-top:30px;
+}
+
+.delivery{
+	width:1000px;
+}
+
+.delivery{
+	height:200px
 }
 
 .delivery th,.delivery td{

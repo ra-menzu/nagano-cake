@@ -1,3 +1,2 @@
 class OrderedItemsController < ApplicationControllerz
-
 end
