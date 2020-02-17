@@ -17,6 +17,9 @@
                 <nav>
                   <ul class="nav navbar-nav navbar-right">
                     <% if guest_signed_in? %>
+                    <span class="text-white storng">
+                      いらっしゃいませ！<%= current_guest.family_name %>
+                    </span>
                     <nav class="nav navbar-nav navar-center">
                       <li class="center">
                         <%= link_to "検索画面"%>
