@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 	has_many :ordered_items, dependent: :destroy
 	has_many :products,through: :ordered_items
-
+ 	# acts_as_paranoid
 
 	belongs_to :guest
 	enum payment_method: {クレジットカード:0, 銀行振込:1}
