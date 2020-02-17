@@ -16,10 +16,10 @@ class Admin::GuestsController < ApplicationController
   def update
     @guest = Guest.with_deleted.find(params[:id])
     @guest.update(guest_params)
-    if params[:guest][:delete_user_status] == "false"
-      @guest.update(delete_user_status: false)
-    elsif params[:guest][:delete_user_status] == "true"
+    if params[:guest][:delete_user_status] == "true"
       @guest.update(delete_user_status: true)
+    elsif params[:guest][:delete_user_status] == "false"
+      @guest.update(delete_user_status: false)
     end
     redirect_to admin_guest_path(@guest.id)
   end
