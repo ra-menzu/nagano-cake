@@ -10,7 +10,8 @@
     <% @guests.each do |guest| %>
 	<tr>
 		<td><%= guest.id %></td>
-		<td> <% @family_name = guest.family_name%>
+		<td>
+			<% @family_name = guest.family_name%>
 			 <% @last_name = guest.last_name %>
 		     <% @name = @family_name + @last_name %>
 		     <%= link_to @name ,admin_guest_path(guest.id) %>

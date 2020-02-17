@@ -1,13 +1,14 @@
 
 <main role="main" class="container">
-
+<% guest = Guest.with_deleted.find(@order.guest_id) %>
 <h2>注文詳細画面</h2>
 <table>
 	<thead>
 		<tr>
 			<th>購入者</th>
-			<td><%= link_to @order.guest.family_name,admin_guest_path(@order.guest.id) %>
-				<%= link_to @order.guest.last_name,admin_guest_path(@order.guest.id)  %>
+			<td>
+				<%= link_to guest.family_name,admin_guest_path(guest.id) %>
+				<%= link_to guest.last_name,admin_guest_path(guest.id)  %>
 			</td>
 		</tr>
 		<tr>
