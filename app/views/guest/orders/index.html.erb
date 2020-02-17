@@ -26,7 +26,7 @@
             <td>〒<%= o.postal_code %><%= o.postal_adress %><%= o.destination %></td>
             <td><%= product.name %></td>
             <td><%= o.billing_amount %></td>
-            <td></td>
+            <td><%= o.order_status %></td>
             <td><%= link_to "表示する" ,guest_order_path(o.id) %></td>
 
         </tr>

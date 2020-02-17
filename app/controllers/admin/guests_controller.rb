@@ -1,20 +1,20 @@
 class Admin::GuestsController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @guests = Guest.with_deleted
   end
 
   def show
-    @guest = Guest.find(params[:id])
+     @guest = Guest.with_deleted.find(params[:id])
   end
 
   def edit
-    @guest = Guest.find(params[:id])
+    @guest = Guest.with_deleted.find(params[:id])
   end
 
   def update
-    @guest = Guest.find(params[:id])
+    @guest = Guest.with_deleted.find(params[:id])
     @guest.update(guest_params)
     if params[:guest][:delete_user_status] == "false"
       @guest.update(delete_user_status: false)

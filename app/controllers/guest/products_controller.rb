@@ -1,16 +1,17 @@
 class Guest::ProductsController < ApplicationController
 
 	def index
-		@genres = Genre.all
+		@genres = Genre.where(class_status: '0')
 		if  params[:genre_id]
 			@genre = Genre.find(params[:genre_id])
 			@products = @genre.products.all
 		else
-			@products = Product.all
+			@products = Product.where(sales_status: '0')
 		end
 	end
 
 	def show
+		@genres = Genre.where(class_status: '0')
 		@product = Product.find(params[:id])
 		@cart_item = CartItem.new
 	end
