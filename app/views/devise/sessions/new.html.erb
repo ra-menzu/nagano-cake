@@ -26,12 +26,12 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "ログイン" %>
+        <%= f.submit "ログイン",class:"btn btn-primary" %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
 
     <p>登録がお済みではない方</p>
-    <%= link_to "こちら",new_guest_registration_path %><span>から新規登録を行ってください。</span>
+    <%= link_to "こちら",new_guest_registration_path,class:"btn btn-primary"%><span>から新規登録を行ってください。</span>
 </div>

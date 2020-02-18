@@ -21,10 +21,10 @@
 	  	   <td> <%=attachment_image_tag cart_item.product, :image, :fill, 400 , 400 , format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake1" %><%= cart_item.product.name %></td>
 	  	   <td><%= (cart_item.product.non_tax_price * 1.1).floor %>円</td>
 	  	    <%= form_for cart_item, url: guest_cart_item_path(cart_item) do |f| %>
-	  	   <td><%= f.number_field :quantity %><%= f.submit "変更" %></td>
+	  	   <td><%= f.number_field :quantity %><%= f.submit "変更",class: "btn btn-sm btn-info" %></td>
 	  	    <% end %>
 	  	   <td><%= sub_total = (cart_item.product.non_tax_price * 1.1).floor * cart_item.quantity %></td>
-	  	   <td><%= link_to "削除する", guest_cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
+	  	   <td><%= link_to "削除する", guest_cart_item_path(cart_item), method: :delete ,class: "btn btn-sm btn-danger" %></td>
 		   <% sum += sub_total %>
         </tr>
         <% end %>
