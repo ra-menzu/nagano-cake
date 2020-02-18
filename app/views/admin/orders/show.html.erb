@@ -8,8 +8,10 @@
 			<th>購入者</th>
 
 			<td>
-				<%= link_to guest.family_name,admin_guest_path(guest.id) %>
-				<%= link_to guest.last_name,admin_guest_path(guest.id)  %>
+				<% @family_name = guest.family_name%>
+			 	<% @last_name = guest.last_name %>
+		    	<% @name = @family_name + @last_name %>
+				<%= link_to @name,admin_guest_path(guest.id)  %>
 			</td>
 		</tr>
 		<tr>
