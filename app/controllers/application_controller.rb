@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
 			root_path
 		end
 	end
+	def after_sign_out_path_for(resource)
+        admin_top_path
+	end
 end
