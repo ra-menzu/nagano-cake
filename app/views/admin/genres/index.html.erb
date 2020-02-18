@@ -14,7 +14,7 @@
         <%= f.label(:class_status, "有効", value: "有効" ) %>
         <%= f.radio_button(:class_status, "無効") %>
         <%= f.label(:class_status, "無効", value: "無効") %>
-        <%= f.submit "追加", class:"btn btn-info btn-md" %>
+        <%= f.submit "追加", class:"btn btn-info btn-lg" %>
         </div>
       <% end %>
       <table class="table table-hover">
@@ -31,7 +31,7 @@
           <tr>
             <td><%= genre.name %></td>
             <td><%= genre.class_status %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn btn-primary" %></td>
           </tr>
         </tbody>
         <% end %>
