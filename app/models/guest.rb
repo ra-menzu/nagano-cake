@@ -19,8 +19,5 @@ class Guest < ApplicationRecord
   validates :street_adress, presence: true
   validates :phone_nember, presence: true
   validates :phone_nember, numericality: true
-  
 
 end
-
-
