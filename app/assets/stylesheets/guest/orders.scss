@@ -1,3 +1,21 @@
 // Place all the styles related to the guest/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table tbody{
+	border-top: 0px;
+}
+
+table th{
+	padding: 40px;
+	
+}
+table td{
+	padding: 40px;
+}
+
+#th-top{
+	border-top: 0px solid #fff;
+}
+#td-top{
+	border-top: 0px solid #fff;
+}

@@ -12,21 +12,25 @@
 	<div class="container">
 		<div class= "row">
 			<div class="col-xs-9">
-				<%= link_to "退会する",guests_path%>
+				<%= link_to "退会する",guests_path, class:"btn btn-danger" %>
 				<%= form_for(@guest) do |f| %>
-					<table class = "table table-striped">
-						<colgroup span=""></colgroup>
+					<table border="1" rules="rows,groups" class = "table table-striped">
+						<colgroup span="3"></colgroup>
 
 						<thead>
 							<tr>
 								<th>氏名</th>
-								<td><%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%></td>
-								<td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name"%></td>
+								<td clospan="2">
+									<%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%>
+									<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name"%>
+								</td>
 							</tr>
 							<tr>
 								<th>カナ</th>
-								<td><%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"%></td>
-								<td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%></td>
+								<td>
+									<%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"%>
+									<%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%>
+								</td>
 							</tr>
 							<tr>
 								<th>郵便番号 〒</th>
@@ -41,19 +45,15 @@
 								<td colspan="2"><%= f.text_field :phone_nember, autofocus: true, autocomplete: "phone_number"%></td>
 							</tr>
 							<tr>
-								<th>メールアドレス</th>
+								<th id="th-email">メールアドレス</th>
 								<td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
 							</tr>
-							<tr>
-								<th>
-									<%= f.submit '編集内容を保存する' %>
-									<% end %>
-								</th>
-							</tr>
 						</thead>
-					</table>
+						<tbody>
+						</tbody>
+						</table>
+					<%= f.submit '編集内容を保存する',class:"btn btn-info" %><% end %>
 				</div>
 				
 			<div class="col-xs-3">
 			</div>
-

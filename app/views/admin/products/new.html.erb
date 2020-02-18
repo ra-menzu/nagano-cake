@@ -1,41 +1,43 @@
 <h3>商品 新規登録画面</h3>
 
-    <%= form_for @product, url:admin_products_path do |f| %>
+<%= form_for @product, url:admin_products_path do |f| %>
 
-    <div class="image_form">
-      <%= f.attachment_field :image %>
-    </div>
-  <div class="input_form">
+<div class="image_form">
+  <%= f.attachment_field :image %>
+</div>
 
-    <div class="form_group">
-     <p>商品名</p>
-     <%= f.text_field :name %>
-    </div>
+<div class="input_form">
 
     <div class="form_group">
-     <p>商品説明</p>
-     <%= f.text_area :comment %>
-    </div>
 
-    <div class="form_group">
-     <p>ジャンル</p>
-     <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
-    </div>
+       <p>商品名</p>
+       <%= f.text_field :name %>
+   </div>
 
-    <div class="form_group">
-     <p>税抜価格</p>
-     <%= f.text_field :non_tax_price %>円
-    </div>
+   <div class="form_group">
+       <p>商品説明</p>
+       <%= f.text_area :comment %>
+   </div>
 
-    <div class="form_group">
-     <p>販売ステータス</p>
-     <%= f.select :sales_status, Product.sales_statuses.keys, {prompt: '選択してください'} %>
-    </div>
+   <div class="form_group">
+       <p>ジャンル</p>
+       <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+   </div>
 
-    <div class="form_group">
-     <input type="submit" value="新規登録">
-    </div>
-  <% end %>
-  </div>
+   <div class="form_group">
+       <p>税抜価格</p>
+       <%= f.text_field :non_tax_price %>円
+   </div>
+
+   <div class="form_group">
+       <p>販売ステータス</p>
+       <%= f.select :sales_status, Product.sales_statuses.keys, {prompt: '選択してください'} %>
+   </div>
+
+   <div class="form_group">
+       <input type="submit" value="新規登録">
+   </div>
+   <% end %>
+</div>
 
 

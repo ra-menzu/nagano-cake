@@ -7,24 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/34ad885584.js" crossorigin="anonymous"></script>
   </head>
   <body>
       <div id="container">
             <header class="navbar navar-fixed-top">
                 <nav class="nav navbar-nav navbar-left">
-                    <h1><%= link_to "ながのcake",root_path %></h1>
+                    <h1><%= link_to "ながのcake",root_path %>
+                      <i class="fas fa-birthday-cake"></i>
+                    </h1>
                 </nav>
                 <nav>
-                  <ul class="nav navbar-nav navbar-right">
-                    <% if guest_signed_in? %>
-                    <span class="text-white storng">
-                      いらっしゃいませ！<%= current_guest.family_name %>様
-                    </span>
+                  <ul class="nav navbar-nav navbar-center">
                     <nav class="nav navbar-nav navar-center">
                       <li class="center">
-                        <%= link_to "検索画面"%>
-                        <%= link_to "商品一覧", guest_products_path %>
+                        <%= text_field_tag :search %>
+                        <%= submit_tag 'Search', :name => nil %>
                      </li>
+                      <% if guest_signed_in? %>
+                    <span class="nav navbar-nav navbar-center">いらっしゃいませ！<%= current_guest.family_name %>様</span>
+                     <li class="center">
+                       <%= link_to "商品一覧", guest_products_path %>
+                     </li>
+
                     </nav>
                     <ul class="nav navbar-nav navbar-right">
                       <li class="">
@@ -57,9 +62,8 @@
                         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
                       </li>
                     <% else %>
-                    <nav class="nav navbar-nav navar-center">
+                    <nav class="nav navbar-nav navar-right">
                       <li class="center">
-                        <%= link_to "検索画面"%>
                         <%= link_to "商品一覧", guest_products_path %>
                       </li>
                     </nav>
@@ -79,6 +83,6 @@
 
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
-    <footer></footer>
+    <footer><p>©️ラーメンズ</p></footer>
 
 </html>

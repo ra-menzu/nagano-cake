@@ -1,3 +1,19 @@
 // Place all the styles related to the guest/guests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn{
+	margin: 10px;
+
+}
+thead{
+	border-bottom: 1px;
+}
+#th-email{
+	border-bottom: 0px solid #fff;
+}
