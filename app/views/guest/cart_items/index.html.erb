@@ -1,4 +1,4 @@
-<h3>ショッピングカート</h3>
+<h3 class="cart-name">ショッピングカート</h3>
 
 
 
@@ -18,7 +18,7 @@
 		<% sum = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tr>
-	  	   <td> <img src="<%= cart_item.product.image_id %>"><%= cart_item.product.name %></td>
+	  	   <td> <%=attachment_image_tag cart_item.product, :image, :fill, 400 , 400 , format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake1" %><%= cart_item.product.name %></td>
 	  	   <td><%= (cart_item.product.non_tax_price * 1.1).floor %>円</td>
 	  	    <%= form_for cart_item, url: guest_cart_item_path(cart_item) do |f| %>
 	  	   <td><%= f.number_field :quantity %><%= f.submit "変更",class: "btn btn-sm btn-info" %></td>
@@ -46,7 +46,7 @@
 
 
 
-<%= link_to "買い物を続ける", guest_products_path, class: "btn btn-primary" %>
+<%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
 
 <div class="container">
 	<div class="row">

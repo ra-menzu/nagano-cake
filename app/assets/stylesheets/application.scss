@@ -16,9 +16,10 @@
 	@import "bootstrap-sprockets";
 	@import "bootstrap";
 
-// main{
-// 	background-color: #ffffee;
-// }
+main{
+background-color: #ffeeff;
+padding-bottom:200px;
+ }
 
 .nav navbar-nav navar-center{
 	text-align: center;
@@ -170,10 +171,20 @@ i{
 	font-size:25px;
 }
 
+.cart-name{
+	margin:0;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
+.sample_cake1{
+	width:50px;
+	height:50px;
+}
+
 footer{
   height:200px;
   background-color:#FFFFDD;
-  margin-top:200px;
 }
 
 footer p{
