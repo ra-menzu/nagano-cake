@@ -8,7 +8,6 @@
 					    <th>郵便番号</th>
 					    <td><%= f.text_area :postal_code %></td>
 					</tr>
-				 
 					<tr>
 					    <th>住所</th>
 					    <td><%= f.text_area :postal_adress %></td>
@@ -38,8 +37,8 @@
 						<td><%= delivery.postal_code %></td>
 						<td><%= delivery.postal_adress %></td>
 						<td><%= delivery.destination %></td>
-						<td><%= link_to "編集する",edit_guest_delivery_address_path(delivery.id) %>
-						<%= link_to "削除する",guest_delivery_address_path(delivery.id),method: :delete,"data-confirm"=>"are you sure?"%></td>
+						<td><%= link_to "編集する",edit_guest_delivery_address_path(delivery.id), class: "btn btn-primary"%>
+						<%= link_to "削除する",guest_delivery_address_path(delivery.id),method: :delete,"data-confirm"=>"are you sure?", class: "btn btn-danger"%></td>
 					</tr>
 				<% end %>
 			</table>
