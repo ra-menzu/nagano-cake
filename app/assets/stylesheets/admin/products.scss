@@ -1,3 +1,22 @@
 // Place all the styles related to the admin/Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size:18px;
+}
+
+.product {
+	margin-top: px;
+}
+
+
+.product-list {
+}
+
+.image-area {
+	float: left;
+}
