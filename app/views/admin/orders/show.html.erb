@@ -8,10 +8,10 @@
 			<th>購入者</th>
 
 			<td>
-				<% @family_name = guest.family_name%>
-			 	<% @last_name = guest.last_name %>
-		    	<% @name = @family_name + @last_name %>
-				<%= link_to @name,admin_guest_path(guest.id)  %>
+			   <% @family_name = guest.family_name%>
+			   <% @last_name = guest.last_name %>
+		       <% @name = @family_name + @last_name %>
+		       <%= link_to @name ,admin_guest_path(guest.id) %>
 			</td>
 		</tr>
 		<tr>
@@ -27,7 +27,7 @@
 			<td>
 				<%= form_for @order, url:admin_order_path do |f| %>
 				<%= f.select :order_status, Order.order_statuses.keys %>
-		        <%= f.submit "更新" %>
+		        <%= f.submit "更新",class:"btn btn-primary" %>
 		        <% end %>
 			</td>
 		</tr>
@@ -55,7 +55,7 @@
 				<td>
 					<%= form_for item, url:admin_path(item.id) do |f| %>
 						<%= f.select :production_status,OrderedItem.production_statuses.keys %>
-						<%= f.submit "更新" %>
+						<%= f.submit "更新",class:"btn btn-primary" %>
 					<% end %>
 				</td>
 			</tr>
