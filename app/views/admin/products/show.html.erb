@@ -1,56 +1,38 @@
 
 
-<main class="container">
+<div class="container">
+  <h2>商品詳細画面</h2>
   <div class="row">
-
-<h2>商品詳細画面</h2>
-
-<div class="image-area">
-    <div class="col-lg-4">
-      <h2><%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake" %></h2>
-    </div>
-</div>
-
-
-    <div class="col-lg-8">
-      <table rules="none">
-        <thead>
-          <div class="product-list">
-          <tr>
-            <th>商品名</th>
-            <td><%= @product.name %></td>
-          </tr>
-          </div>
-          <div class="product-list">
-          <tr>
-            <th>商品説明</th>
-          <td><%= @product.comment %></td>
-          </tr>
-          </div>
-          <div class="product-list">
-          <tr>
-            <th>ジャンル</th>
-            <td><%= @product.genre.name %></td>
-          </tr>
-          </div>
-          <div class="product-list">
-          <tr>
-            <th>税抜価格</th>
-            <td><%= (@product.non_tax_price* 1.1).floor %>(<%= @product.non_tax_price %>)円</td>
-          </tr>
-          </div>
-          <div class="product-list">
-          <tr>
-            <th>販売ステータス</th>
-            <td><%= @product.sales_status %></td>
-          </tr>
+    <div class="image-area">
+        <div class="col-lg-6">
+          <h2><%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake" %></h2>
         </div>
-        </thead>
-      </table>
     </div>
-
-          <div class="text-right">
+      <div class="col-lg-6">
+        <table rules="none">
+              <tr>
+                <th>商品名</th>
+                <td><%= @product.name %></td>
+              </tr>
+              <tr>
+                <th>商品説明</th>
+              <td><%= @product.comment %></td>
+              </tr>
+              <tr>
+                <th>ジャンル</th>
+                <td><%= @product.genre.name %></td>
+              </tr>
+              <tr>
+                <th>税抜価格</th>
+                <td><%= (@product.non_tax_price* 1.1).floor %>(<%= @product.non_tax_price %>)円</td>
+              </tr>
+              <tr>
+                <th>販売ステータス</th>
+                <td><%= @product.sales_status %></td>
+              </tr>
+          </table>
+          <div class="botan">
             <%= link_to "編集する", edit_admin_product_path,class:"btn btn-primary rounded-circle p-0" %>
           </div>
-        </div>
-      </main>
+      </div>
+</div>

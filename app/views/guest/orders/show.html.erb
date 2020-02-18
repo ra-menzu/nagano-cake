@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  	<title>注文履歴詳細</title>
-  </head>
-  <body>
+
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
@@ -56,9 +51,8 @@
           </table>
       </div>
   </div>
-
-  <div class="col-xs-6">
-    <div class="row">
+  <div class="row">
+    <div class="col-xs-6">
         <strong>注文内容</strong>
         <table border="1" rules="all"class="table table-striped">
           <tr>
@@ -73,9 +67,9 @@
             <td><%= i.tax_included_price %>円</td>
             <td><%= i.quantity %></td>
             <td><%= i.tax_included_price * i.quantity %>円</td>
+          </tr>
           <% end %>
-      </div>
+        </table>
     </div>
-  </tr>
-  </body>
-</html>
+  </div>
+  
