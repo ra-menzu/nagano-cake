@@ -1,16 +1,35 @@
-<div class="product-details">
-	<%= form_for @cart_item,url:guest_cart_items_path do |f| %>
-		<%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg' %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">
+			<table class="table">
+				<h3>ジャンル検索</h3>
+					<% @genres.each do |genre| %>
+							<tr>
+								<td>
+									<%= link_to genre.name,guest_products_path(genre_id: genre.id) %>
+							    </td>
+							</tr>
+					<% end %>
+			</table>
+		</div>
 
-		<h4 class="show-product-name"><%= @product.name %></h4>
-		<p><%= @product.comment %></p>
-		<p class="show-product-comment"></p>
+		<div class="col-xs-10">
+			<div class="product-details">
+				<%= form_for @cart_item,url:guest_cart_items_path do |f| %>
+					<%= attachment_image_tag @product, :image, :fill, 400, 400, format: 'jpeg' %>
 
-		<% tax = 1.1 %>
-		<% tax_price = @product.non_tax_price * tax .floor %>
-		<div class="show-product-price">¥<%= tax_price %>(税込)</div>
-		<%= f.hidden_field :product_id, :value => @product.id %>
-		<%= f.select :quantity, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %>
-		<%= f.submit "カートに入れる" %>
-	<% end %>
-</div>
+                    <div class="product-name">
+						<h2 class="show-product-name"><%= @product.name %></h2>
+						<p><%= @product.comment %></p>
+						<p class="show-product-comment"></p>
+
+						<% tax = 1.1 %>
+						<% tax_price = @product.non_tax_price * tax .floor %>
+						<div class="show-product-price">¥<%= tax_price %>(税込)</div>
+						<%= f.hidden_field :product_id, :value => @product.id %>
+						<%= f.select :quantity, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]],class:"form-group" %>
+						<%= f.submit "カートに入れる",class:"btn btn-primary btn-lg" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
