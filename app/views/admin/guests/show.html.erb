@@ -42,5 +42,5 @@
 
 </table>
 
-<%= link_to "編集する",edit_admin_guest_path(@guest.id) %>
-<%= link_to "注文履歴一覧を見る", admin_orders_path(id: @guest.id) %>
+<%= link_to "編集する",edit_admin_guest_path(@guest.id),class:"btn btn-primary" %>
+<%= link_to "注文履歴一覧を見る", admin_orders_path(id: @guest.id),class:"btn btn-primary" %>
