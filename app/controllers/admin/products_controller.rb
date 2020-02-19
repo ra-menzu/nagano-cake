@@ -2,14 +2,14 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-  	@products = Product.all
+    @products = Product.all
   end
   def new
     @product = Product.new
   end
   def create
-  	@product = Product.new(product_params)
-  	@product.save
+    @product = Product.new(product_params)
+    @product.save
     redirect_to admin_product_path(@product)
   end
   def show

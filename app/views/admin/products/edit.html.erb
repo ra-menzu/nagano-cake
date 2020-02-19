@@ -1,9 +1,10 @@
+
 <div class="container">
     <h3>商品編集 画面</h3>
     <div class="row">
         <%= form_for @product, url:admin_product_path do |f| %>
             <div class="col-lg-4">
-                <%= f.file_field :image_id %>
+                <%= f.file_field :image %>
             </div>
             <div class = "col-lg-8">
                 <table>

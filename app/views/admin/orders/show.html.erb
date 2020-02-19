@@ -48,7 +48,7 @@
 		<% @order.ordered_items.each do |item| %>
 			<tr class="item_<%= item.id %>">
 				<td><%= item.product.name %></td>
-				<td><%= item.tax_included_price %></td>
+				<td><%= item.tax_included_price %>円</td>
 				<td><%= item.quantity %></td>
 				<td><%= @total_item= item.quantity * item.tax_included_price %>円</td>
                 <% @sum += @total_item %>
