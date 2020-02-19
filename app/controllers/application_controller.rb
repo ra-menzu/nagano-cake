@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
 		end
 	end
 	def after_sign_out_path_for(resource)
-        admin_top_path
+		case resource
+		when Admin
+	        admin_top_path
+        else
+    	root_path
+    end
 	end
 end
