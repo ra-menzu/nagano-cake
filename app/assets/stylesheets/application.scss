@@ -63,23 +63,6 @@ i{
 	font-size:40px;
 }
 
-#main{
-	width:100%;
-	height:600px;
-	background-image:url(top-image.jpg);
-	background-size:cover;
-	background-position:center;
-}
-
-.main-title h1,.main-title h2{
-	color: rgba(255, 255, 255, 0.6);
-	font-size:100px;
-	padding-top:80px;
-	padding-left:30px;
-	margin:0;
-
-}
-
 .navar-center input{
 	margin:15px;
 }
@@ -190,4 +173,43 @@ footer{
 footer p{
 	text-align:center;
 	line-height:200px;
+}
+
+.image1 {
+background-image: url(top-image.jpg);
+}
+.image2 {
+background-image: url(image2.jpg);
+}
+.image3 {
+background-image: url(image3.jpg);
+}
+.image4 {
+background-image: url(image4.jpg);
+}
+.image5 {
+background-image: url(cake_sample.jpg);
+}
+
+#main-image{
+	height: 600px;
+	position:relative
+}
+
+#main-image h1{
+	color: rgba(255, 255, 255, 0.6);
+	font-size:100px;
+	top:80px;
+	left:30px;
+	margin:0;
+	position:absolute
+	}
+
+#main-image h2{
+	color: rgba(255, 255, 255, 0.6);
+	font-size:100px;
+	top:180px;
+	left:30px;
+	margin:0;
+	position:absolute
 }
