@@ -1,33 +1,32 @@
 <h3 class="cart-name">ショッピングカート</h3>
 
 
-
 <table class="table">
 	<thead class="thead-light">
-	  <tr>
-	    <th>商品名</th>
-	    <th>単価(税込)</th>
-	    <th>数量</th>
-	    <th>小計</th>
-	    <th>   </th>
-	  </tr>
+		<tr>
+			<th>商品名</th>
+			<th>単価(税込)</th>
+			<th>数量</th>
+			<th>小計</th>
+			<th>   </th>
+		</tr>
 	</thead>
 
-<%= link_to "カートを空にする","/guest/cart_item", method: :delete, class: "btn btn-sm btn-danger" %>
+	<%= link_to "カートを空にする","/guest/cart_item", method: :delete, class: "btn btn-sm btn-danger" %>
 	<tbody>
 		<% sum = 0 %>
-        <% @cart_items.each do |cart_item| %>
-        <tr>
-	  	   <td> <%=attachment_image_tag cart_item.product, :image, :fill, 400 , 400 , format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake1" %><%= cart_item.product.name %></td>
-	  	   <td><%= (cart_item.product.non_tax_price * 1.1).floor %>円</td>
-	  	    <%= form_for cart_item, url: guest_cart_item_path(cart_item) do |f| %>
-	  	   <td><%= f.number_field :quantity %><%= f.submit "変更",class: "btn btn-sm btn-info" %></td>
-	  	    <% end %>
-	  	   <td><%= sub_total = (cart_item.product.non_tax_price * 1.1).floor * cart_item.quantity %></td>
-	  	   <td><%= link_to "削除する", guest_cart_item_path(cart_item), method: :delete ,class: "btn btn-sm btn-danger" %></td>
-		   <% sum += sub_total %>
-        </tr>
-        <% end %>
+		<% @cart_items.each do |cart_item| %>
+		<tr>
+			<td> <%=attachment_image_tag cart_item.product, :image, :fill, 400 , 400 , format: 'jpeg',fallback: "no_image.jpg" ,class: "sample_cake1" %><%= cart_item.product.name %></td>
+			<td><%= (cart_item.product.non_tax_price * 1.1).floor %>円</td>
+			<%= form_for cart_item, url: guest_cart_item_path(cart_item) do |f| %>
+			<td><%= f.number_field :quantity %><%= f.submit "変更",class: "btn btn-sm btn-info" %></td>
+			<% end %>
+			<td><%= sub_total = (cart_item.product.non_tax_price * 1.1).floor * cart_item.quantity %></td>
+			<td><%= link_to "削除する", guest_cart_item_path(cart_item), method: :delete ,class: "btn btn-sm btn-danger" %></td>
+			<% sum += sub_total %>
+		</tr>
+		<% end %>
 	</tbody>
 </table>
 
